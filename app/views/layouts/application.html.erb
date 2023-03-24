@@ -27,7 +27,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/header" %>
+    <div class="main">
+      <%= yield %>
+    </div>
+    <%= render "shared/footer" %>
 
     <!-- BOOTSTRAP -->
     <script
@@ -36,6 +40,5 @@
         crossorigin="anonymous"
       ></script>
     <!-- BOOTSTRAP -->
-
   </body>
 </html>
