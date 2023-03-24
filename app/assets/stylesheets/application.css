@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main {
+  padding-top: 110px;
+}
+
+.btn {
+  border-radius: 45px;
+  padding: 8px 30px;
+}
+
+.flash {
+  display: inline;
+}
