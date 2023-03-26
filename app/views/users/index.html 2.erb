@@ -1,0 +1,25 @@
+<!-- USERS SECTION -->
+<div class="container">
+  <h1>ユーザー一覧</h1>
+  <div class="user-contents">
+    <% @users.each do | user | %>
+      <div class="user-content">
+        <div class="user-top">
+          <%= link_to users_path do %>
+            <% if user.image.blank? %>
+
+            <% end  %>
+            <%= user.name %>
+          <% end %>
+          <%= user.gender %>
+        </div>
+        <div class="user-down">
+          <% if user.introduction %>
+            <%= user.introduction %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- USERS SECTION -->
