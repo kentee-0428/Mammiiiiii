@@ -9,12 +9,14 @@
     <div class="header-nav">
       <div class="toggle-menu-button"></div>
         <ul class="header-list">
-          <li><%= link_to "logout", "#" %></li>
-          <li><%= link_to "ユーザー名", "#" %></li>
-          <li><%= link_to "ゲスト", "#" %></li>
-          <li><%= link_to "signup", "#" %></li>
-          <li><%= link_to "login", "#" %></li>
-          <li><%= link_to "guest", "#" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+          <% else %>
+            <li><%= link_to "signup", new_user_registration_path %></li>
+            <li><%= link_to "login", new_user_session_path %></li>
+            <li><%= link_to "guest", "#" %></li>
+          <% end %>
         </ul>
     </div>
   </div>
