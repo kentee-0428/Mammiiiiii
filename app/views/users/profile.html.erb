@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <!-- USER_INFORMATION SECTION -->
   <div class="user-info">
@@ -53,4 +54,56 @@
   <!-- USERS_INFORMATION SECTION -->
 
 
+=======
+<% provide(:title, @user.name) %>
+<div class="container">
+  <div class="user-title">
+    <h1>User</h1>
+    <p>ユーザー</p>
+  </div>
+  <div class="user-form">
+    <div class="user-top">
+      <div class="user-icon">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url %>
+        <% else %>
+          <%= image_tag "default.png", class: "guest-user" %>
+        <% end %>
+      </div>
+      <div class="user-name">
+        <% if @user.name? %>
+          <h2><%= @user.name %></h2>
+        <% else %>
+          <h2>ゲスト</h2>
+        <% end %>
+      </div>
+      <div class="user-posts"><p>投稿数：</p></div>
+      <div class="user-places"><p>場所数：</p></div>
+      <div class="user-gender">
+        <% case @user.gender %>
+          <% when "男性" %>
+            <span class="fa-solid fa-person fa-bounce man"></span>
+          <% when "女性" %>
+            <span class="fa-solid fa-person-dress fa-bounce woman"></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="user-down">
+      <div class="user-introduction">
+        <% if @user.introduction? %>
+          <%= @user.introduction %>
+        <% else %>
+          <%= render "shared/user_introduction_exmple" %>
+        <% end %>
+      </div>
+    </div>
+    <% if current_user.id == @user.id %>
+      <div class="user-links">
+        <%= link_to "プロフィール編集", edit_user_path, class: "user-edit" %>
+        <%= link_to "アカウント編集", edit_user_registration_path, class: "user-edit" %>
+        <%= link_to "アカウントを削除", profile_user_path(id: @user), method: :delete, data: { confirm: "ユーザーのアカウントを本当に削除しますか？" }, class: "user-delete" %>
+      </div>
+    <% end %>
+  </div>
+>>>>>>> 753e4eaf72e1c5348b4f20c51cf719ea2082804e
 </div>

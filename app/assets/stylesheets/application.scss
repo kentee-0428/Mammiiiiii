@@ -51,6 +51,19 @@ a {
   padding: 8px 30px;
 }
 
-.flash {
-  display: inline;
+.user-icon img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: cover;
+  border:3px solid #347dec;
+}
+
+.alert {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.field_with_errors {
+  display: contents;
 }

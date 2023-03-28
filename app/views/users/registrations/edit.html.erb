@@ -1,16 +1,24 @@
 <div class="container">
-  <div class="signup">
-    <div class="signup-form">
-      <div class="signup-header">
-        <h2>アカウント編集</h2>
-      </div>
-      <div class="signup-body container-fluid">
+  <div class="account-edit">
+    <div class="account-edit-title">
+      <h1>Edit Account</h1>
+      <p>ーアカウント編集ー</p>
+    </div>
+    <div class="account-edit-form">
+      <div class="account-edit-body container-fluid">
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "users/shared/error_messages", resource: @user %>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :email %></div>
-            <div class="col-md-6 form-item"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力してください" %></div>
+            <%= f.label :email, class: "required" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-regular fa-envelope size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-content-name", placeholder: "メールアドレスを入力してください" %>
+              </div>
+            </div>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -18,22 +26,44 @@
           <% end %>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :password %> (6字以上)</div>
-            <div class="col-md-6 form-item"><%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力してください" %></div>
+            <%= f.label :password, class: "required" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-solid fa-unlock-keyhole size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.password_field :password, autocomplete: "new-password", class: "field-content-name", placeholder: "新しいパスワードを入力してください" %>
+              </div>
+            </div>
+            <span>※6文字以上の英数字をご入力してください</span>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :password_confirmation %></div>
-            <div class="col-md-6 form-item"><%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワードを入力してください" %></div>
+            <%= f.label :password_confirmation, class: "required" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-solid fa-unlock-keyhole size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field-content-name", placeholder: "パスワードをもう一度入力してください" %>
+              </div>
+            </div>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :current_password %></div>
-            <div class="col-md-6 form-item"><%= f.password_field :current_password, autocomplete: "current-password" %></div>
+            <%= f.label :current_password, class: "required" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-solid fa-unlock-keyhole size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "field-content-name", placeholder: "現在のパスワードを入力してください" %>
+              </div>
+            </div>
           </div>
 
           <div class="row">
-            <div class="form-btn"><%= f.submit "更新する", class: "btn-signup btn btn-primary" %></div>
+            <div class="form-btn"><%= f.submit "更新する", class: "account-edit-btn btn btn-primary" %></div>
           </div>
         <% end %>
       </div>

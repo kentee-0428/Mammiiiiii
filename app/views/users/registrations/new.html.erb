@@ -1,32 +1,61 @@
 <div class="container">
-  <div class="signup">
-    <div class="signup-form">
-      <div class="signup-header">
-        <h2>新規アカウント作成</h2>
-      </div>
-      <div class="signup-body container-fluid">
-        <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="account-edit">
+    <div class="account-edit-title">
+      <h1>Signup</h1>
+      <p>ー新規登録ー</p>
+    </div>
+    <div class="account-edit-form">
+      <div class="account-edit-body container-fluid">
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+          <%= render "users/shared/error_messages", resource: @user %>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :name %></div>
-            <div class="col-md-6 form-item"><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザー名を入力してください" %></div>
+            <%= f.label :name, class: "required profile-edit-image" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-regular fa-face-smile size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "field-content-name", placeholder: "ユーザー名を入力してください" %>
+              </div>
+            </div>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :email %></div>
-            <div class="col-md-6 form-item"><%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレスを入力してください" %></div>
+            <%= f.label :email, class: "required profile-edit-email" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-regular fa-envelope size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.email_field :email, class: "field-content-name", autocomplete: "email", placeholder: "メールアドレスを入力してください" %>
+              </div>
+            </div>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :password %> (6字以上)</div>
-            <div class="col-md-6 form-item"><%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力してください" %></div>
+            <%= f.label :password, class: "required profile-edit-password" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-solid fa-unlock-keyhole size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.password_field :password, autocomplete: "new-password", class: "field-content-name", placeholder: "パスワードを入力してください" %>
+              </div>
+            </div>
+            <span>※6文字以上の英数字をご入力してください</span>
           </div>
 
-
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :password_confirmation %></div>
-            <div class="col-md-6 form-item"><%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワードを入力してください" %></div>
+            <%= f.label :password_confirmation, class: "required profile-edit-password" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-solid fa-unlock-keyhole size"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field-content-name", placeholder: "パスワードをもう一度入力してください" %>
+              </div>
+            </div>
           </div>
 
           <div class="row">
@@ -35,7 +64,7 @@
         <% end %>
       </div>
       <div class="signup-footer">
-        <%= render "devise/shared/links" %>
+        <%= render "users/shared/links" %>
       </div>
     </div>
   </div>
