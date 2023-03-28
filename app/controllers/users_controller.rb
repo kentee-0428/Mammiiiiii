@@ -4,8 +4,8 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc)
   end
 
-  def show
-    @user = User.find(current_user.id)
+  def profile
+    @user = User.find(params[:id])
   end
 
   def new
@@ -26,13 +26,17 @@ class UsersController < ApplicationController
     end
     if @user.update(user_update_params)
       flash[:notice] = "#{@user.name}の情報を更新しました"
-      redirect_to root_path
+      redirect_to profile_user_path
     else
       render "edit"
     end
   end
 
   def destroy
+    @user = User.find(current_user.id)
+    @user.destroy
+    redirect_to users_path
+    flash[:notice] = "#{@user.name}のアカウントを削除しました"
   end
 
   private

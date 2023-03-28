@@ -29,8 +29,7 @@
   <body>
     <%= render "shared/header" %>
     <div class="main">
-    <%= notice %>
-    <%= alert %>
+    <%= render "shared/flash" %>
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
