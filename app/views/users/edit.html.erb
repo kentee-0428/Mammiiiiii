@@ -1,53 +1,66 @@
-<!-- USER_PROFILE_EDIT SECTION -->
 <div class="container">
-  <div class="signup">
-    <div class="signup-form">
-      <div class="signup-header">
-        <h1>プロフィールを編集する</h1>
+  <div class="profile-edit">
+    <div class="profile-edit-title">
+      <h1>Edit Profile</h1>
+      <p>プロフィール編集</p>
+    </div>
+    <div class="profile-edit-form">
+      <div class="user-icon-item">
+        <% if current_user.image? %>
+          <div class="user-icon">
+            <%= image_tag current_user.image.url %>
+          </div>
+        <% else %>
+          <div class="user-icon">
+            <%= image_tag "default.png" %>
+          </div>
+        <% end %>
       </div>
-      <div class="signup-body container-fluid">
+      <div class="profile-edit-body container-fluid">
         <%= form_with model: @user, local: true do |f| %>
-          <%= render "devise/shared/error_messages", resource: @user %>
+          <%= render "users/shared/error_messages", resource: @user %>
 
-          <div class="user-icon-item">
-            <% if current_user.image? %>
-              <div class="user-icon">
-                <%= image_tag current_user.image.url %>
+          <div class="field row">
+            <%= f.label :name, class: "required" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-regular fa-face-smile size"></i>
               </div>
-            <% else %>
-              <div class="user-icon">
-                <%= image_tag "default.png" %>
+              <div class="field-content-right">
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "field-content-name", placeholder: "ユーザー名を入力してください" %>
               </div>
-            <% end %>
+            </div>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :image %></div>
-            <div class="col-md-6 form-item"><%= f.file_field :image, autocomplete: "image", class: "hidden" %></div>
-          </div>
-
-
-          <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :name %></div>
-            <div class="col-md-6 form-item"><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザー名を入力してください" %></div>
+            <%= f.label :image, class: "profile-edit-image" %></br>
+            <div class="profile-edit-image-content"><%= f.file_field :image, autocomplete: "image" %></div>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :gender, '性別' %></div>
-            <div class="col-md-6 form-item"><%= f.select :gender, { "男性": 0, "女性": 1 }, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></div>
+            <%= f.label :gender, class: "required profile-edit-gender" %></br>
+            <div class="radio-botton">
+              <%= f.radio_button :gender, :男性 %>
+              <%= f.label :gender, "男性", {value: :男性, style: "display: inline-block;", class: "radio-label"} %>
+              <%= f.radio_button :gender, :女性 %>
+              <%= f.label :gender, "女性", {value: :女性, style: "display: inline-block;", class: "radio-label"} %>
+            </div>
           </div>
 
           <div class="field row">
-            <div class="col-md-6 form-item"><%= f.label :introduction %></div>
-            <div class="col-md-6 form-item"><%= f.text_area :introduction, autocomplete: "introduction", placeholder: "初めまして、マミーです。よろしくお願いします" %></div>
+            <%= f.label :introduction %></br>
+            <%= f.text_area :introduction, autocomplete: "introduction", class: "field-content field-introduction", placeholder: "初めまして、マミーです。よろしくお願いします" %>
+            <p>※150文字以内入力してください</p>
           </div>
 
           <div class="row">
-            <div class="form-btn"><%= f.submit "更新する", class: "btn-signup btn btn-primary" %></div>
+            <div class="form-btn"><%= f.submit "更新する", class: "profile-edit-btn btn btn-primary" %></div>
           </div>
         <% end %>
+      </div>
+      <div class="profile-edit-footer">
+        <%= link_to "戻る", :back %>
       </div>
     </div>
   </div>
 </div>
-<!-- USER_PROFILE_EDIT SECTION -->

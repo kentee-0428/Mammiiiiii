@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   # イメージカラムを指定
   mount_uploader :image, ImageUploader
+
+  validates :name, presence: true, uniqueness: true, length: { maximum: 10 }
+  validates :gender, presence: true, on: :update
+  validates :introduction, length: { maximum: 150 }
 end

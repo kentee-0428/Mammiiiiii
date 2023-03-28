@@ -1,25 +1,47 @@
-<!-- USERS SECTION -->
 <div class="container">
-  <h1>ユーザー一覧</h1>
-  <div class="user-contents">
+  <div class="users-title">
+    <h1>Users</h1>
+    <p>ユーザー一覧</p>
+  </div>
+  <div class="users-contents">
     <% @users.each do | user | %>
-      <div class="user-content">
-        <div class="user-top">
-          <%= link_to users_path do %>
-            <% if user.image.blank? %>
-
-            <% end  %>
-            <%= user.name %>
-          <% end %>
-          <%= user.gender %>
+      <%= link_to profile_user_path(id: user) do %>
+        <div class="users-content scale">
+          <div class="users-left">
+            <div class="user-icon">
+              <% if user.image? %>
+                <%= image_tag user.image.url %>
+              <% else %>
+                <%= image_tag "default.png" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="users-right">
+            <ul class="users-top">
+              <li class="user-name">
+                <%= user.name %>
+              </li>
+              <li class="user-posts"><p>投稿数：</p></li>
+              <li class="user-places"><p>場所数：</p></li>
+              <% if user.gender %>
+                <li class="user-gender">
+                  <% case user.gender %>
+                    <% when "男性" %>
+                      <span class="fa-solid fa-person fa-bounce man"></span>
+                    <% when "女性" %>
+                      <span class="fa-solid fa-person-dress fa-bounce woman"></span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <div class="users-down">
+              <% if user.introduction %>
+                <%= user.introduction %>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <div class="user-down">
-          <% if user.introduction %>
-            <%= user.introduction %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-<!-- USERS SECTION -->

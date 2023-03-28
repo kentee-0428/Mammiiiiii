@@ -6,12 +6,17 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :users do
-    collection do
-      get :account
-      get :profile
-    end
+  devise_scope :user do
+    get 'login', to: 'users/sessions#new'
+    post 'login', to: 'users/sessions#create'
+    delete 'logout', to: 'users/sessions#destroy'
   end
+
+  resources :users do
+    member do
+      get 'profile'
+  end
+end
 
   root to: 'home#index'
 end
