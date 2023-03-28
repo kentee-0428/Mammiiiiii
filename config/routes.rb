@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'login', to: 'users/sessions#new'
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
+    post 'users/guest_login', to: 'users/sessions#guest_login'
   end
 
   resources :users do

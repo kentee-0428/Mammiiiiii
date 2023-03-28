@@ -35,7 +35,7 @@
           <% else %>
             <li><%= link_to "signup", new_user_registration_path %></li>
             <li><%= link_to "login", login_path %></li>
-            <li><%= link_to "guest", "#" %></li>
+            <li><%= link_to "guest", users_guest_login_path, method: :post %></li>
           <% end %>
         </ul>
     </div>

@@ -41,11 +41,13 @@
       </div>
     </div>
     <% if current_user.id == @user.id %>
-      <div class="user-links">
-        <%= link_to "プロフィール編集", edit_user_path, class: "user-edit" %>
-        <%= link_to "アカウント編集", edit_user_registration_path, class: "user-edit" %>
-        <%= link_to "アカウントを削除", profile_user_path(id: @user), method: :delete, data: { confirm: "ユーザーのアカウントを本当に削除しますか？" }, class: "user-delete" %>
-      </div>
+      <% unless @user.name == "ゲスト" %>
+        <div class="user-links">
+          <%= link_to "プロフィール編集", edit_user_path, class: "user-edit" %>
+          <%= link_to "アカウント編集", edit_user_registration_path, class: "user-edit" %>
+          <%= link_to "アカウントを削除", profile_user_path(id: @user), method: :delete, data: { confirm: "ユーザーのアカウントを本当に削除しますか？" }, class: "user-delete" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
