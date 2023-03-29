@@ -14,6 +14,9 @@ class User < ApplicationRecord
     end
   end
 
+  #アソシエーション設定
+  has_many :posts
+
   validates :name, presence: true, uniqueness: true, length: { maximum: 10 }
   validates :gender, presence: true, on: :update
   validates :introduction, length: { maximum: 150 }

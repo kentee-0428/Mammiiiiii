@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+# ============== posts ======================
+  resources :posts
+# ============== posts ======================
+
+# ============== users ======================
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords',
@@ -16,8 +21,8 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'profile'
+    end
   end
-end
-
+# ============== users ======================
   root to: 'home#index'
 end
