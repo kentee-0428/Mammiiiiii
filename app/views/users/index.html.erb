@@ -21,7 +21,7 @@
               <li class="user-name">
                 <%= user.name %>
               </li>
-              <li class="user-posts"><p>投稿数：</p></li>
+              <li class="user-posts"><p><%= "Post: #{user.posts.count}" %></p></li>
               <li class="user-places"><p>場所数：</p></li>
               <% if user.gender %>
                 <li class="user-gender">

@@ -1,0 +1,93 @@
+.post-title {
+  text-align: center;
+  padding: 70px 0 30px;
+}
+
+.post-title h1 {
+  letter-spacing: 7px;
+  margin-bottom: 0;
+}
+
+.post-title p {
+  font-size: 10px;
+}
+.post-title p::after {
+  background-color: #0d63e4;
+  content: '';
+  width: 110px;
+  height: 4px;
+  display: block;
+  margin: 20px auto;
+}
+
+.post-content {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  border: 0.1px solid rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.post-left .user-icon{
+  width: 100px;
+  height: 100px;
+}
+.post-left {
+  padding: 0 10px;
+  width: 15%;
+}
+
+.post-right {
+  padding: 0 10px;
+  width: 85%;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.post-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-bottom: 1px solid rgb(179, 182, 182);
+}
+
+.post-top-left {
+  display: flex;
+}
+
+.post-top .post-name {
+  font-weight: bold;
+  font-size: 23px;
+  margin-right: 50px;
+}
+
+.post-main {
+  padding: 10px;
+}
+
+.post-down {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-down li {
+  margin-left: 40px;
+  opacity: 0.6;
+}
+
+.post-down li:hover {
+  opacity: 1;
+}
+
+.fa-pen-to-square {
+  color: rgb(147, 41, 41);
+}
+
+.fa-trash-can {
+  color: red;
+}

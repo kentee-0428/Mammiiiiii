@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="posts-title">
+    <h1>Posts</h1>
+    <p>投稿一覧</p>
+  </div>
+  <div class="posts-btn">
+      <%= link_to new_post_path do %>
+        <p class="posts-btn-TITLE">New Post</p>
+        <p class="posts-btn-title">新規投稿</p>
+      <% end %>
+  </div>
+  <div class="posts-contents">
+    <div class="result-count">
+      <h2><%= "検索結果：#{@posts.count}" %></h2>
+    </div>
+    <div class="posts-text-zero">
+      <% if @posts.count == 0 %>
+        <p>投稿がありません</p>
+      <% end %>
+    </div>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(id: post) do %>
+        <div class="posts-content scale">
+          <div class="posts-left">
+            <div class="user-icon">
+              <% if post.user.image? %>
+                <%= image_tag post.user.image.url %>
+              <% else %>
+                <%= image_tag "default.png" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="posts-right">
+            <div class="posts-top">
+              <div class="posts-top-right">
+                <div class="user-name">
+                  <p><%= post.user.name %></p>
+                </div>
+                <div class="post-gender">
+                  <% if post.user.gender %>
+                    <% case post.user.gender %>
+                      <% when "男性" %>
+                        <span class="fa-solid fa-person fa-bounce man"></span>
+                      <% when "女性" %>
+                        <span class="fa-solid fa-person-dress fa-bounce woman"></span>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="posts-top-left">
+                <div class="post-user-create-time">
+                  作成日: <%= post.created_at.to_s(:datetime_jp) %>
+                </div>
+              </div>
+            </div>
+            <div class="posts-main">
+              <div class="posts-content-image">
+                <% if post.post_image %>
+                  <%= image_tag post.post_image.url %>
+                <% end %>
+              </div>
+              <div class="posts-content-item">
+                <% if post.content %>
+                  <%= post.content %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

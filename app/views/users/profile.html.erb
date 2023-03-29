@@ -20,7 +20,7 @@
           <h2>ゲスト</h2>
         <% end %>
       </div>
-      <div class="user-posts"><p>投稿数：</p></div>
+      <div class="user-posts"><p><%= "Post: #{@user.posts.count}" %></p></div>
       <div class="user-places"><p>場所数：</p></div>
       <div class="user-gender">
         <% case @user.gender %>
@@ -46,6 +46,54 @@
           <%= link_to "プロフィール編集", edit_user_path, class: "user-edit" %>
           <%= link_to "アカウント編集", edit_user_registration_path, class: "user-edit" %>
           <%= link_to "アカウントを削除", profile_user_path(id: @user), method: :delete, data: { confirm: "ユーザーのアカウントを本当に削除しますか？" }, class: "user-delete" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="posts-title">
+    <h1>Posts</h1>
+    <p>投稿一覧</p>
+  </div>
+  <div class="posts-contents">
+    <div class="posts-text-zero">
+      <% if @user.posts.count == 0 %>
+        <p>投稿がありません</p>
+      <% end %>
+    </div>
+    <% @user.posts.each do |posts| %>
+      <%= link_to post_path(id: posts) do %>
+        <div class="posts-content scale">
+          <div class="posts-left">
+            <div class="user-icon">
+              <% if posts.user.image? %>
+                <%= image_tag posts.user.image.url %>
+              <% else %>
+                <%= image_tag "default.png" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="posts-right">
+            <ul class="posts-top">
+              <li class="user-name">
+                <p><%= posts.user.name %></p>
+              </li>
+              <li class="posts-user-create-time">
+                作成日: <%= posts.created_at.to_s(:datetime_jp) %>
+              </li>
+            </ul>
+            <div class="posts-down">
+              <div class="posts-content-image">
+                <% if posts.post_image %>
+                  <%= image_tag posts.post_image.url %>
+                <% end %>
+              </div>
+              <div class="posts-content-item">
+                <% if posts.content %>
+                  <%= posts.content %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>

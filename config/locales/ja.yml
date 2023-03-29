@@ -13,6 +13,9 @@ ja:
         password_confirmation: パスワード(確認用)
         current_password: 現在のパスワード
         encrypted_password: パスワード
+      post:
+        content: 投稿内容
+        post_image: 画像
 
   errors:
     messages:

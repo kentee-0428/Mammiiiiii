@@ -33,7 +33,10 @@
           </div>
 
           <div class="field row">
-            <%= f.label :image, class: "profile-edit-image" %></br>
+            <%= f.label :image %></br>
+            <div  class="profile-edit-image">
+              <%= image_tag @user.image.url if @user.image? %>
+            </div>
             <div class="profile-edit-image-content"><%= f.file_field :image, autocomplete: "image" %></div>
           </div>
 
