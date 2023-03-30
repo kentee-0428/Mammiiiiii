@@ -93,6 +93,8 @@
 
 .posts-main {
   padding: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(179, 182, 182);
 }
 
 .posts-content-image img{
@@ -133,4 +135,14 @@
 .posts-btn p {
   margin-bottom: 0;
   text-align: center;
+}
+
+.posts-down {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.posts-down li {
+  margin-right: 20px;
 }

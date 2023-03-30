@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 # ============== posts ======================
-  resources :posts
+  resources :posts do
+    resource :likes, only: [:create, :destroy]
+  end
 # ============== posts ======================
 
 # ============== users ======================

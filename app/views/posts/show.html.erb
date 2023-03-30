@@ -51,6 +51,18 @@
         </div>
         <ul class="post-down">
           <% if current_user.id == @post.user_id %>
+            <li class="post-like">
+              <% if @post.liked?(current_user) %>
+                <%= link_to post_likes_path(@post), method: :delete do %>
+                  <span class="fa fa-heart liked-btn"></span>
+                <% end %>
+              <% else %>
+                <%= link_to post_likes_path(@post), method: :post do %>
+                  <span class="fa-regular fa-heart"></span>
+                <% end %>
+              <% end %>
+              <%= @post.likes.count %>
+            </li>
             <li class="post-edit">
               <%= link_to edit_post_path do %>
                 <span class="fa-solid fa-pen-to-square"></span>
@@ -61,6 +73,21 @@
                 <span class="fa-solid fa-trash-can"></span>
               <% end %>
             </li>
+          <% else %>
+            <% if user_signed_in? %>
+              <li class="post-like">
+                <% if @post.liked?(current_user) %>
+                  <%= link_to post_likes_path(@post), method: :delete do %>
+                    <span class="fa fa-heart liked-btn"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_likes_path(@post), method: :post do %>
+                    <span class="fa-regular fa-heart"></span>
+                  <% end %>
+                <% end %>
+                <%= @post.likes.count %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>

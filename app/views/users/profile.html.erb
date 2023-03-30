@@ -73,15 +73,19 @@
             </div>
           </div>
           <div class="posts-right">
-            <ul class="posts-top">
-              <li class="user-name">
-                <p><%= posts.user.name %></p>
-              </li>
-              <li class="posts-user-create-time">
-                作成日: <%= posts.created_at.to_s(:datetime_jp) %>
-              </li>
-            </ul>
-            <div class="posts-down">
+            <div class="posts-top">
+              <div class="posts-top-right">
+                <div class="user-name">
+                  <p><%= posts.user.name %></p>
+                </div>
+              </div>
+              <div class="posts-top-left">
+                <div class="post-user-create-time">
+                  作成日: <%= posts.created_at.to_s(:datetime_jp) %>
+                </div>
+              </div>
+            </div>
+            <div class="posts-main">
               <div class="posts-content-image">
                 <% if posts.post_image %>
                   <%= image_tag posts.post_image.url %>
@@ -93,6 +97,33 @@
                 <% end %>
               </div>
             </div>
+            <ul class="posts-down">
+              <% if current_user.id == posts.user_id %>
+                <li class="post-like">
+                  <% if posts.liked?(current_user) %>
+                    <span class="fa fa-heart liked-btn"></span>
+                  <% else %>
+                    <span class="fa-regular fa-heart"></span>
+                  <% end %>
+                  <%= posts.likes.count %>
+                </li>
+              <% else %>
+                <% if user_signed_in? %>
+                  <li class="post-like">
+                    <% if posts.liked?(current_user) %>
+                      <%= link_to post_likes_path(posts), method: :delete do %>
+                        <span class="fa fa-heart liked-btn"></span>
+                      <% end %>
+                    <% else %>
+                      <%= link_to post_likes_path(posts), method: :post do %>
+                        <span class="fa-regular fa-heart"></span>
+                      <% end %>
+                    <% end %>
+                    <%= posts.likes.count %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       <% end %>
