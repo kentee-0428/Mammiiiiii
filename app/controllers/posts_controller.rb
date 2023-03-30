@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  before_action :set_q, only: [:index]
+
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @results = @q.result.order(created_at: :desc)
   end
 
   def show
@@ -50,5 +52,9 @@ class PostsController < ApplicationController
 
   def post_update_params
     params.require(:post).permit(:content, :user_id, :post_image)
+  end
+
+  def set_q
+    @q = Post.ransack(params[:q])
   end
 end

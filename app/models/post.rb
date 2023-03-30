@@ -11,6 +11,11 @@ class Post < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  # ransackモデルにホワイトリストを登録
+  def self.ransackable_attributes(auth_object = nil)
+    ["content"]
+  end
+
   validates :content, presence: true, length: { maximum: 500 }
   validates :user_id, presence: true
 end
