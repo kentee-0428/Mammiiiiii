@@ -75,9 +75,13 @@
             </li>
           <% else %>
             <% if user_signed_in? %>
+              <li class="post-comment">
+                <span class="fa-regular fa-comments"></span>
+                <%= @post.comments.count %>
+              </li>
               <li class="post-like">
                 <% if @post.liked?(current_user) %>
-                  <%= link_to post_likes_path(@post), method: :delete do %>
+                  <%= link_to post_like_path(@post), method: :delete do %>
                     <span class="fa fa-heart liked-btn"></span>
                   <% end %>
                 <% else %>
@@ -90,6 +94,66 @@
             <% end %>
           <% end %>
         </ul>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="comment-contents">
+      <div class="comment-post">
+        <%= form_with model:[@post, @comment], local: true do |f| %>
+          <%= render "users/shared/error_messages", resource: @comment %>
+          <div class="comment-text">
+            <%= f.text_area :content, placeholder: "上記の投稿に対してコメントする..." %>
+          </div>
+          <div class="comment-text-btn">
+            <%= f.submit "コメントする", class: "btn btn-primary" %>
+          </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :post_id, value: @post.id %>
+        <% end %>
+      </div>
+      <div class="comment-index">
+        <% @comments.each do |comment| %>
+          <div class="comment-content">
+            <div class="comment-left">
+              <% if comment.user.image? %>
+                <div class="user-icon">
+                  <%= image_tag comment.user.image.url %>
+                </div>
+              <% else %>
+                <div class="user-icon">
+                  <%= image_tag "default.png" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="comment-right">
+              <div class="comment-top">
+                <div class="comment-top-right">
+                  <div class="user-name">
+                    <p><%= comment.user.name %></p>
+                  </div>
+                </div>
+                <div class="posts-top-left">
+                  <div class="post-user-create-time">
+                    <p>作成日: <%= comment.created_at.to_s(:datetime_jp) %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="comment-main">
+                <%= comment.content %>
+              </div>
+              <ul class="post-down">
+                <% if current_user.id == comment.user_id %>
+                  <li class="post-delete">
+                    <%= link_to post_comment_path(comment.post,comment), method: :delete, data: { confirm: "#{comment.user.name}さんコメント内容を本当に削除しますか？" } do %>
+                      <span class="fa-solid fa-trash-can"></span>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

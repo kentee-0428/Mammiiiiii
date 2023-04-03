@@ -20,6 +20,7 @@ header {
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
   color: #0d63e4;
+  width: 100%;
 }
 
 .header-logo p {
@@ -30,6 +31,7 @@ header {
   position: absolute;
   top: 3px;
   left: 70px;
+  width: 100%;
 }
 
 .header-logo {
@@ -41,6 +43,7 @@ header {
   justify-content: end;
   align-items: center;
   height: 110px;
+  width: 100%;
 }
 
 .header-list li {
@@ -54,6 +57,7 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .header-list li::before {
@@ -144,5 +148,35 @@ footer .container {
   color: #ffffff;
   padding-top: 40px;
 }
+// ====================================================
 
 /* =====footer end===== */
+
+// =========== タブレット ================
+@media screen and (max-width: 960px) {
+  /* =====header start===== */
+  .toggle-menu-button {
+    display: block;
+  }
+
+  .middle {
+    display: none;
+  }
+  /* =====header end===== */
+
+  /* =====footer start===== */
+  /* =====footer end===== */
+}
+
+
+// // // =========== アイフォン ================
+// @media screen and (max-width: 520px) {
+//   /* =====header start===== */
+//   .container {
+//     max-width: 520px;
+//   }
+//   /* =====header end===== */
+
+//   /* =====footer start===== */
+//   /* =====footer end===== */
+// }

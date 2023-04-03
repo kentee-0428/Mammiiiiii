@@ -79,16 +79,20 @@
               </div>
             </div>
             <ul class="posts-down">
-              <% if user_signed_in? %>
-                <li class="post-like">
+              <li class="post-comment">
+                <span class="fa-regular fa-comments"></span>
+                <%= post.comments.count %>
+              </li>
+              <li class="post-like">
+                <% if user_signed_in? %>
                   <% if post.liked?(current_user) %>
                     <span class="fa fa-heart liked-btn"></span>
                   <% else %>
                     <span class="fa-regular fa-heart"></span>
                   <% end %>
                   <%= post.likes.count %>
-                </li>
-              <% end %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   #アソシエーション設定
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # 「ログイン中のユーザーがその投稿に対していいねをしているか」
   def liked?(user)

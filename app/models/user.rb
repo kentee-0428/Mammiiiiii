@@ -17,6 +17,7 @@ class User < ApplicationRecord
   #アソシエーション設定
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 10 }
   validates :gender, presence: true, on: :update
