@@ -1,4 +1,9 @@
 <div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active"  aria-current="page">新規登録</li>
+    </ol>
+  </nav>
   <div class="account-edit">
     <div class="account-edit-title">
       <h1>Signup</h1>
@@ -19,6 +24,7 @@
                 <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "field-content-name", placeholder: "ユーザー名を入力してください" %>
               </div>
             </div>
+            <span>※10文字以内ご入力してください</span>
           </div>
 
           <div class="field row">

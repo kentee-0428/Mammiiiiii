@@ -1,46 +1,66 @@
 <header>
-  <div class="container">
-    <div class="header-logo">
-      <%= link_to root_path do %>
-        <h1><span>M</span>ammiiiiii</h1>
-        <p>( マミー )</p>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <span>M</span>ammiiiiii
       <% end %>
-    </div>
-    <div class="header-nav">
-      <div class="toggle-menu-button">
-      </div>
-        <ul class="header-list">
+      <div class="collapse navbar-collapse" id="exampleNavbarToggle">
+        <ul class="navbar-nav me-auto mb-2">
           <% if user_signed_in? %>
-            <li><%= link_to "Home", root_path, class: "middle" %></li>
-            <li><%= link_to "Posts", posts_path, class: "middle" %></li>
-            <li><%= link_to "Users", users_path, class: "middle" %></li>
-            <li><%= link_to "Logout", logout_path, method: :delete, class: "middle" %></li>
-            <li>
+            <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link text-white" %></li>
+            <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-link text-white" %></li>
+            <li class="nav-item"><%= link_to "Users", users_path, class: "nav-link text-white" %></li>
+            <li class="nav-item"><%= link_to "Logout", logout_path, method: :delete, class: "nav-link text-white" %></li>
+            <li class="nav-item">
               <% if current_user.name? %>
-                <%= link_to current_user.name, profile_user_path(id: current_user) %>
+                <%= link_to current_user.name, profile_user_path(id: current_user), class: "nav-link text-white" %>
               <% else %>
-                <%= link_to "ゲスト", profile_user_path(id: current_user) %>
+                <%= link_to "ゲスト", profile_user_path(id: current_user), class: "nav-link text-white" %>
               <% end %>
             </li>
-            <li>
+            <li class="nav-item">
               <div class="user-icon">
                 <% if current_user.image? %>
-                  <%= link_to profile_user_path(id: current_user) do %>
+                  <%= link_to profile_user_path(id: current_user), class: "nav-link" do %>
                     <%= image_tag current_user.image.url %>
                   <% end %>
                 <% else %>
-                  <%= link_to profile_user_path(id: current_user) do %>
-                    <%= image_tag "default.png" %>
+                  <%= link_to profile_user_path(id: current_user), class: "nav-link" do %>
+                    <%= image_tag "default.png", class: "guest-img" %>
                   <% end %>
                 <% end %>
               </div>
             </li>
           <% else %>
-            <li><%= link_to "Signup", new_user_registration_path, class: "middle" %></li>
-            <li><%= link_to "Login", login_path, class: "middle" %></li>
-            <li><%= link_to "Guest", users_guest_login_path, method: :post, class: "middle" %></li>
+            <li class="nav-item"><%= link_to "Signup", new_user_registration_path, class: "nav-link text-white" %></li>
+            <li class="nav-item"><%= link_to "Login", login_path, class: "nav-link text-white" %></li>
+            <li class="nav-item"><%= link_to "Guest", users_guest_login_path, method: :post, class: "nav-link text-white" %></li>
           <% end %>
         </ul>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h3>
+          <button class="btn-close text-reset" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav flex-grow-1 pe-3">
+            <% if user_signed_in? %>
+              <li class="nav-item"><i class="fa-solid fa-house"></i><%= link_to "Home", root_path, class: "nav-link text-primary" %></li>
+              <li class="nav-item"><i class="fa-solid fa-paper-plane"></i><%= link_to "Posts", posts_path, class: "nav-link text-primary" %></li>
+              <li class="nav-item"><i class="fa-solid fa-user"></i><%= link_to "Users", users_path, class: "nav-link text-primary" %></li>
+              <li class="nav-item"><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", logout_path, method: :delete, class: "nav-link text-primary" %></li>
+            <% else %>
+              <li class="nav-item"><i class="fa-solid fa-user-plus"></i><%= link_to "Signup", new_user_registration_path, class: "nav-link text-primary" %></li>
+              <li class="nav-item"><i class="fa-solid fa-right-to-bracket"></i><%= link_to "Login", login_path, class: "nav-link text-primary" %></li>
+              <li class="nav-item"><i class="fa-solid fa-person-circle-check"></i><%= link_to "Guest", users_guest_login_path, method: :post, class: "nav-link text-primary" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>

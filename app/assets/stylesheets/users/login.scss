@@ -1,6 +1,6 @@
 .login-title {
   text-align: center;
-  padding: 70px 0 30px;
+  padding: 50px 0 30px;
 }
 
 .login-title h1 {
@@ -128,3 +128,47 @@ label {
   color: white;
 }
 // ======= btn ============
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .login-form {
+    width: 80%;
+  }
+
+  .login-form .form-btn  {
+    width: 50%;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .login-form {
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .login-form .field-content {
+    margin: 0;
+  }
+
+  .login-form .form-btn {
+    width: 100%;
+  }
+
+  .login-form .login-form-btn {
+    width: 100%;
+  }
+
+  .login-form label {
+    padding: 0;
+  }
+
+  .login-form svg {
+    font-size: 12px;
+  }
+
+  .login-form .login-footer {
+    font-size: 12px;
+  }
+}

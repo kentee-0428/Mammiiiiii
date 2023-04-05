@@ -1,4 +1,12 @@
 <div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "ホーム", root_path %></li>
+      <li class="breadcrumb-item"><%= link_to "ユーザー", users_path %></li>
+      <li class="breadcrumb-item"><%= link_to "プロフィール", user_path(@user) %></li>
+      <li class="breadcrumb-item active"  aria-current="page"><%= link_to "アカウント編集", edit_user_registration_path %></li>
+    </ol>
+  </nav>
   <div class="account-edit">
     <div class="account-edit-title">
       <h1>Edit Account</h1>

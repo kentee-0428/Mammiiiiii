@@ -1,6 +1,6 @@
 .post-edit-title {
   text-align: center;
-  padding: 70px 0 30px;
+  padding: 50px 0 30px;
 }
 
 .post-edit-title h1 {
@@ -72,4 +72,40 @@ label {
 .post-edit-form p {
   color: #0d63e4;
   font-size: 12px;
+}
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .post-edit-form {
+    width: 80%;
+  }
+
+  .form-btn  {
+    width: 50%;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .post-edit .post-edit-form {
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .post-edit textarea {
+    margin: 0;
+  }
+
+  .post-edit .form-btn {
+    width: 100%;
+  }
+
+  .post-edit .post-edit-btn {
+    width: 100%;
+  }
+
+  .post-edit label {
+    padding: 0;
+  }
 }

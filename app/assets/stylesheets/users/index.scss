@@ -1,6 +1,6 @@
 .users-title {
   text-align: center;
-  padding: 70px 0;
+  padding: 50px;
 }
 
 .users-title h1 {
@@ -22,6 +22,7 @@
 
 .users-contents {
   padding: 0 200px;
+  width: 100%;
 }
 
 .users-content {
@@ -33,6 +34,7 @@
   transition-duration: 0.2s;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .scale:hover {
@@ -72,4 +74,72 @@
 .users-down {
   padding: 5px;
   margin-left: 20px;
+}
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .users-title {
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  .users-contents {
+    padding: 0 10px;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .users-title {
+    text-align: center;
+    padding: 30px 0;
+  }
+
+  .users-contents {
+    padding: 0;
+  }
+
+  .users-content {
+    padding: 10px;
+  }
+
+  .users-left {
+    padding: 0 5px
+  }
+
+  .users-left .user-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .users-right {
+    padding: 0;
+  }
+
+  .users-top p {
+    margin-bottom: 0;
+  }
+
+  .users-top {
+    margin-left: 0;
+  }
+
+  .users-top li {
+    margin: 0;
+    padding: 0 8px;
+    font-size: 8px;
+  }
+
+  .users-down {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .user-gender svg {
+    font-size: 12px;
+  }
+
+  .users-down {
+    font-size: 10px;
+  }
 }
