@@ -15,7 +15,7 @@
 
 .user-title {
   text-align: center;
-  padding: 70px 0;
+  padding: 50px;
 }
 
 .user-title h1 {
@@ -122,4 +122,84 @@
 
 .user-posts, .user-places {
   padding-right: 70px;
+}
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .user-title {
+    padding: 50px 0;
+  }
+
+  .user-form {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .user-form .user-icon {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: -80px;
+    left: -10px;
+  }
+
+  .user-form h2 {
+    margin-bottom: 0;
+  }
+
+  .user-name {
+    padding: 0 20px;
+  }
+
+  .user-posts, .user-places {
+    padding: 20px;
+  }
+
+  .user-links {
+    padding: 35px;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .user-form {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .user-form .user-icon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -40px;
+    left: -10px;
+  }
+
+  .user-form .user-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-posts {
+    padding: 0;
+  }
+
+  .user-places {
+    padding: 0 0 8px;
+  }
+
+  .user-introduction {
+    padding: 10px;
+  }
+
+  .user-links {
+    padding: 10px;
+  }
+
+  .user-links a {
+    font-size: 8px;
+    padding: 0 10px;
+  }
 }

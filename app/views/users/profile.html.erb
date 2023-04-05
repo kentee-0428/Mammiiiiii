@@ -1,5 +1,12 @@
 <% provide(:title, @user.name) %>
 <div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "ホーム", root_path %></li>
+      <li class="breadcrumb-item"><%= link_to "ユーザー", users_path %></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= link_to "プロフィール", user_path(@user) %></li>
+    </ol>
+  </nav>
   <div class="user-title">
     <h1>User</h1>
     <p>ユーザー</p>

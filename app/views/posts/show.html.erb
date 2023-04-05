@@ -1,4 +1,11 @@
 <div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "ホーム", root_path %></li>
+      <li class="breadcrumb-item"><%= link_to "投稿一覧", posts_path %></li>
+      <li class="breadcrumb-item active"  aria-current="page"><%= link_to "ユーザー投稿", post_path(@post) %></li>
+    </ol>
+  </nav>
   <div class="post-title">
     <h1>Post</h1>
     <p>投稿</p>

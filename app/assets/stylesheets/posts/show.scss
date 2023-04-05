@@ -1,6 +1,6 @@
 .post-title {
   text-align: center;
-  padding: 70px 0 30px;
+  padding: 50px 0 30px;
 }
 
 .post-title h1 {
@@ -94,4 +94,78 @@
 
 .liked-btn, .fa-heart {
   color: rgba(236, 34, 111, 0.963);
+}
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .post-content {
+    padding: 20px;
+
+  }
+
+  .post-left .user-icon img{
+    width: 70px;
+    height: 70px;
+  }
+
+  .post-right {
+    margin-left: 0;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .post-content {
+    padding: 10px 5px;
+    width: 100%;
+  }
+
+  .post-content {
+    padding: 5px;
+  }
+
+  .post-left .user-icon img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .post-top .post-top-right {
+    font-size: 12px;
+  }
+
+  .post-top .post-name {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 12px;
+  }
+
+  .post-gender svg {
+    font-size: 12px;
+  }
+
+  .comment-contents {
+    width: 90%;
+    padding: 5px;
+  }
+
+  .comment-content {
+    padding: 5px;
+  }
+
+  .comment-left .user-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .comment-top, .comment-main {
+    font-size: 12px;
+  }
+
+  .post-down svg {
+    font-size: 12px;
+  }
+
+  .search-form-area {
+    margin: 0;
+  }
 }
