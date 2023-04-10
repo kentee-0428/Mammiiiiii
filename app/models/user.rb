@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   #アソシエーション設定
   has_many :posts, dependent: :destroy
+  has_many :spots, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 

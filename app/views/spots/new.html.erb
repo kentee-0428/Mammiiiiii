@@ -1,0 +1,72 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "ホーム", root_path %></li>
+      <li class="breadcrumb-item"><%= link_to "投稿一覧", spots_path %></li>
+      <li class="breadcrumb-item active"  aria-current="page"><%= link_to "スポット新規", new_spot_path %></li>
+    </ol>
+  </nav>
+  <div class="spot-new">
+    <div class="spot-new-title">
+      <h1>New Spot</h1>
+      <p>スポット編集</p>
+    </div>
+    <div class="spot-new-form">
+      <div class="spot-new-body container-fluid">
+        <%= form_with model: @spot, local: true do |f| %>
+          <%= render "shared/error_messages", resource: @spot %>
+
+          <div class="field row">
+            <%= f.label :title, class: "required" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-regular fa-flag"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "field-content-title", placeholder: "タイトルを入力してください" %>
+              </div>
+            </div>
+            <p>※15文字以内ご入力してください</p>
+          </div>
+
+          <div class="field row">
+            <%= f.label :address, class: "required spot-new-image" %></br>
+            <div class="field-content row">
+              <div class="field-content-left">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="field-content-right">
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "field-content-address", placeholder: "住所を入力してください" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="field row">
+            <%= f.label :content %></br>
+            <%= f.text_area :content, autocomplete: "content", class: "field-content field-spot-content", placeholder: "スポットに対する感想などを入力してください" %>
+            <p>※150文字以内入力してください</p>
+          </div>
+
+          <div class="field row">
+            <%= f.label :spot_image, class: "required" %></br>
+            <div class="spot-new-image-content"><%= f.file_field :spot_image, autocomplete: "spot_image" %></div>
+          </div>
+
+          <%= f.label :category, 'カテゴリ' %>
+            <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+              <%= category.label do %>
+              <%= category.check_box %>
+              <%= category.text %>
+            <% end %>
+          <% end %>
+
+          <%= f.hidden_field :user_id, value: current_user.id %>
+
+          <div class="row">
+            <div class="form-btn"><%= f.submit "投稿する", class: "btn btn-primary" %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

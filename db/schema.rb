@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_30_133723) do
+ActiveRecord::Schema.define(version: 2023_04_10_115418) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2023_03_30_133723) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "categories", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -61,6 +67,25 @@ ActiveRecord::Schema.define(version: 2023_03_30_133723) do
     t.string "post_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spot_category_relations", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "spot_id"
+  end
+
+  create_table "spots", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "spot_image"
+    t.integer "user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|

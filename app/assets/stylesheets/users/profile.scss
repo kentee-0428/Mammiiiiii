@@ -124,6 +124,23 @@
   padding-right: 70px;
 }
 
+.user-spots {
+  display: flex;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  border: 0.1px solid rgba(0, 0, 0, 0.12);
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.user-spots-contents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 95px;
+  row-gap: 70px;
+  width: 100%;
+  padding: 0 20px;
+}
+
 // ================== タブレット ==========================
 @media screen and (max-width: 960px) {
   .user-title {
@@ -201,5 +218,15 @@
   .user-links a {
     font-size: 8px;
     padding: 0 10px;
+  }
+
+  .user-spots {
+    padding: 20px 0;
+  }
+
+  .user-spots-contents {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
   }
 }

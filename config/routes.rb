@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+# ============== spots ======================
+  resources :spots
+# ============== spots ======================
+
 # ============== posts ======================
   resources :posts do
     resources :likes, only: [:create, :destroy]

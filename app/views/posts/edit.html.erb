@@ -15,7 +15,7 @@
     <div class="post-edit-form">
       <div class="post-edit-body container-fluid">
         <%= form_with model: @post, local: true do |f| %>
-          <%= render "users/shared/error_messages", resource: @post %>
+          <%= render "shared/error_messages", resource: @post %>
 
         <div class="field row">
           <%= f.label :content, class: "required" %></br>

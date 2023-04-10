@@ -1,0 +1,186 @@
+.spot-new-title {
+  text-align: center;
+  padding: 50px 0 30px;
+}
+
+.spot-new-title h1 {
+  letter-spacing: 7px;
+  margin-bottom: 0;
+}
+
+.spot-new-title p {
+  font-size: 10px;
+}
+
+.spot-new-title p::after {
+  background-color: #0d63e4;
+  content: '';
+  width: 110px;
+  height: 4px;
+  display: block;
+  margin: 20px auto;
+}
+
+.spot-new-form {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  border: 0.1px solid rgba(0, 0, 0, 0.12);
+  padding: 40px;
+  border-radius: 5px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.spot-new {
+  margin: 0 auto;
+}
+
+#error_explanation {
+  color: red;
+  text-align: center;
+  display: contents;
+}
+
+.required:after {
+  content: "*";
+  color: rgba(255, 0, 0, 0.941);
+  font-size: 20px;
+  margin-left: 5px;
+  }
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field-content {
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.field-content-left, .field-content-right {
+  display: inline-block;
+}
+
+.field-content-left {
+  width: 5%;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.spot-new-image {
+  padding: 0 12px;
+}
+
+.field-content-right {
+  width: 95%;
+  padding: 5px;
+}
+
+.fa-flag {
+  width: 100%;
+  color: yellowgreen;
+}
+
+.spot-new-body .fa-location-dot {
+  margin-right: 0;
+  width: 100%;
+}
+
+.field-content-title, .field-content-address {
+  border: none;
+  width: 100%;
+}
+
+.spot-new-body .field-spot-content {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+}
+
+.spot-new-image img {
+  width: 30%;
+}
+
+.spot-new-form p {
+  color: #0d63e4;
+  font-size: 12px;
+}
+
+/* ========== devise-links ========== */
+.devise-links {
+  display: inline-block;
+  padding-bottom: 6px;
+}
+/* ========== devise_links ========== */
+
+// ======= btn ============
+.form-btn  {
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.spot-new-btn {
+  background-color: #347dec;
+  color: white;
+}
+// ======= btn ============
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .spot-new .spot-new-form {
+    width: 80%;
+  }
+
+  .spot-new .form-btn  {
+    width: 50%;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .spot-new .spot-new-form {
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .spot-new .spot-new-image-content {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .spot-new .field-introduction {
+    font-size: 15px;
+  }
+
+  .spot-new .field-content {
+    margin: 0;
+  }
+
+  .spot-new .form-btn {
+    width: 100%;
+  }
+
+  .spot-new .spot-new-btn {
+    width: 100%;
+  }
+
+  .spot-new label {
+    padding: 0;
+  }
+
+  .spot-new svg {
+    font-size: 12px;
+  }
+}

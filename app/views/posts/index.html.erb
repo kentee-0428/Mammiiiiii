@@ -38,7 +38,7 @@
       <% end %>
     </div>
     <% @results.each do | post | %>
-      <%= link_to post_path(id: post) do %>
+      <%= link_to post_path(post) do %>
         <div class="posts-content scale">
           <div class="posts-left">
             <div class="user-icon">
@@ -74,8 +74,8 @@
             </div>
             <div class="posts-main">
               <div class="posts-content-image">
-                <% if post.post_image %>
-                  <%= image_tag post.post_image.url %>
+                <% if post.post_image? %>
+                  <%= image_tag post.post_image.url, class: "post-image" %>
                 <% end %>
               </div>
               <div class="posts-content-item">
@@ -105,4 +105,5 @@
       <% end %>
     <% end %>
   </div>
+  <%= paginate @results, class: "page" %>
 </div>

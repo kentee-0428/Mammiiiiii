@@ -1,0 +1,134 @@
+.show-spot-title {
+  text-align: center;
+  padding: 50px 0 30px;
+}
+
+.show-spot-title h1 {
+  letter-spacing: 7px;
+  margin-bottom: 0;
+}
+
+.show-spot-title p {
+  font-size: 10px;
+}
+
+.show-spot-title p::after {
+  background-color: #0d63e4;
+  content: '';
+  width: 110px;
+  height: 4px;
+  display: block;
+  margin: 20px auto;
+}
+
+.show-spot-content {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  border: 0.1px solid rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.show-spot-content-image .show-spot-image {
+  width: 100%;
+  height: 400px;
+}
+
+.show-spot-content-title {
+  padding: 3px;
+  font-size: 30px;
+}
+
+.show-spot-content-address {
+  font-size: 18px;
+  padding: 3px;
+}
+
+.show-spot-content-content {
+  font-size: 18px;
+  padding: 3px;
+}
+
+.show-spot-down .fa-pen-to-square, .fa-trash-can {
+  display: inline-block;
+  opacity: 0.6;
+}
+
+.show-spot-down .fa-pen-to-square:hover {
+  opacity: 1;
+}
+
+.show-spot-down .fa-trash-can:hover {
+  opacity: 1;
+}
+
+.show-spot-content-edit li {
+  margin-right: 40px;
+}
+
+.show-spot-content-edit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.show-spot-content-category p {
+  margin-bottom: 0;
+}
+
+.show-spot-content-category {
+  display: flex;
+  align-items: center;
+}
+
+.show-spot-content-category .fa-house {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .show-spot-content {
+    box-shadow: none;
+    border: none;
+    margin: 0 auto 10px;
+    width: 100%;
+  }
+
+  .show-spot-content-image .show-spot-image {
+    width: 100%;
+    height: 150px;
+  }
+
+  .show-spot-content-title {
+    padding: 3px;
+    font-size: 20px;
+  }
+
+  .show-spot-content-address {
+    font-size: 10px;
+    padding: 3px;
+  }
+
+  .show-spot-content-content {
+    font-size: 10px;
+    padding: 3px;
+  }
+
+  .show-spot-content-edit li {
+    margin-right: 0;
+    margin-left: 15px;
+    font-size: 10px;
+  }
+
+  .show-spot-content-category .fa-house {
+    font-size: 10px;
+    margin-right: 7px;
+  }
+
+  .show-spot-content-category {
+    font-size: 10px;
+  }
+
+}

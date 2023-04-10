@@ -15,7 +15,7 @@
     <div class="account-edit-form">
       <div class="account-edit-body container-fluid">
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-          <%= render "users/shared/error_messages", resource: @user %>
+          <%= render "shared/error_messages", resource: @user %>
 
           <div class="field row">
             <%= f.label :email, class: "required" %></br>
