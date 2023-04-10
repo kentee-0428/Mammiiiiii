@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.all.order(created_at: :desc)
+    @users = User.all.page(params[:page]).per(15).order(created_at: :desc)
   end
 
   def profile
@@ -10,9 +10,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-  end
-
-  def create
   end
 
   def edit
@@ -24,7 +21,7 @@ class UsersController < ApplicationController
     if @user.image.nil?
       @user.image = "default.png"
     end
-    if @user.update(user_update_params)
+    if @user.update(user_params)
       flash[:notice] = "#{@user.name}の情報を更新しました"
       redirect_to profile_user_path
     else
@@ -41,7 +38,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_update_params
+  def user_params
     params.require(:user).permit(:name, :image, :gender, :introduction)
   end
 

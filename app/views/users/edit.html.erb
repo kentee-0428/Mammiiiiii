@@ -26,7 +26,7 @@
       </div>
       <div class="profile-edit-body container-fluid">
         <%= form_with model: @user, local: true do |f| %>
-          <%= render "users/shared/error_messages", resource: @user %>
+          <%= render "shared/error_messages", resource: @user %>
 
           <div class="field row">
             <%= f.label :name, class: "required" %></br>

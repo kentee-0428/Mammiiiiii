@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_q, only: [:index]
 
   def index
-    @results = @q.result.order(created_at: :desc)
+    @results = @q.result.all.page(params[:page]).per(15).order(created_at: :desc)
   end
 
   def show
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_createe_params)
+    @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "#{@post.user.name}さんの投稿が完了しました。"
       redirect_to posts_path
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_update_params)
+    if @post.update(post_params)
       flash[:notice] = "#{@post.user.name}さんの投稿を更新しました"
       redirect_to posts_path
     else
@@ -49,15 +50,12 @@ class PostsController < ApplicationController
 
   private
 
-  def post_createe_params
-    params.require(:post).permit(:content, :user_id, :post_image)
-  end
-
-  def post_update_params
+  def post_params
     params.require(:post).permit(:content, :user_id, :post_image)
   end
 
   def set_q
     @q = Post.ransack(params[:q])
   end
+
 end

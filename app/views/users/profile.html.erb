@@ -28,7 +28,7 @@
         <% end %>
       </div>
       <div class="user-posts"><p><%= "Post: #{@user.posts.count}" %></p></div>
-      <div class="user-places"><p>場所数：</p></div>
+      <div class="user-places"><%= "Spot: #{@user.spots.count}" %></p></div>
       <div class="user-gender">
         <% case @user.gender %>
           <% when "男性" %>
@@ -94,7 +94,7 @@
             </div>
             <div class="posts-main">
               <div class="posts-content-image">
-                <% if posts.post_image %>
+                <% if posts.post_image? %>
                   <%= image_tag posts.post_image.url %>
                 <% end %>
               </div>
@@ -136,4 +136,48 @@
       <% end %>
     <% end %>
   </div>
+  <div class="spots-title">
+    <h1>Spots</h1>
+    <p>スポット一覧</p>
+  </div>
+  <div class="user-spots">
+    <div class="user-spots-contents">
+      <% if @user.spots.nil? %>
+        <div class="spots-text-zero">
+          <p>投稿がありません</p>
+        </div>
+      <% else %>
+        <% @user.spots.each do | spot | %>
+          <%= link_to spot_path(spot) do %>
+            <div class="spot-content scale">
+              <div class="spot-top">
+                <div class="spot-content-image">
+                  <%= image_tag spot.spot_image.url, class: "spot-image" %>
+                </div>
+              </div>
+              <div class="spot-down">
+                <ul>
+                  <li class="spot-title">
+                    <p><%= spot.title %></p>
+                  </li>
+                  <li class="spot-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p><%= spot.address %></p>
+                  </li>
+                  <li class="spot-category">
+                    <i class="fa-solid fa-house"></i>
+                    <% spot.categories.each do |category| %>
+                      <%= category.name %>
+                      <%= "," %>
+                    <% end %>
+                  </li>
+              </ul>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>

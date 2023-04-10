@@ -1,0 +1,52 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "ホーム", root_path %></li>
+      <li class="breadcrumb-item"><%= link_to "投稿一覧", spots_path %></li>
+      <li class="breadcrumb-item active"  aria-current="page"><%= link_to "スポット投稿", spot_path(@spot) %></li>
+    </ol>
+  </nav>
+  <div class="show-spot-title">
+    <h1>spot</h1>
+    <p>スポット投稿</p>
+  </div>
+    <div class="show-spot-content">
+      <div class="show-spot-top">
+        <div class="show-spot-content-image">
+          <%= image_tag @spot.spot_image.url, class: "show-spot-image" %>
+        </div>
+      </div>
+      <div class="show-spot-down">
+        <ul>
+          <li class="show-spot-content-title"><%= @spot.title %></li>
+          <li class="show-spot-content-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <%= @spot.address %>
+          </li>
+          <li class="show-spot-content-category">
+            <i class="fa-solid fa-house"></i>
+            <% @spot.categories.each do |category| %>
+              <%= category.name %>
+              <%= "," %>
+            <% end %>
+          </li>
+          <li class="show-spot-content-content"><%= @spot.content %></li>
+          <% if current_user.id == @spot.user_id %>
+            <div class="show-spot-content-edit">
+              <li class="spot-edit">
+                <%= link_to edit_spot_path do %>
+                  <span class="fa-solid fa-pen-to-square"></span>
+                <% end %>
+              </li>
+              <li class="spot-delete">
+                <%= link_to spot_path(@spot), method: :delete, data: { confirm: "投稿内容を本当に削除しますか？" } do %>
+                  <span class="fa-solid fa-trash-can"></span>
+                <% end %>
+              </li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

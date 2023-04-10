@@ -16,6 +16,18 @@ ja:
       post:
         content: 投稿内容
         post_image: 画像
+      spot:
+        title: タイトル
+        address: 住所
+        content: 感想
+        spot_image: 画像
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."
 
   errors:
     messages:

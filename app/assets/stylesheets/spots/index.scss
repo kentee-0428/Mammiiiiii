@@ -1,0 +1,203 @@
+.spots-title {
+  text-align: center;
+  padding: 50px 0 20px;
+}
+
+.spots-title h1 {
+  letter-spacing: 7px;
+  margin-bottom: 0;
+}
+
+.spots-title p {
+  font-size: 10px;
+}
+
+.spots-title p::after {
+  background-color: #0d63e4;
+  content: '';
+  width: 110px;
+  height: 4px;
+  display: block;
+  margin: 20px auto;
+}
+
+.spots {
+  display: flex;
+}
+
+.nav-side {
+  text-align: center;
+  width: 15%;
+  margin-right: 10px;
+}
+
+.nav-side-item {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  background-color: rgb(244, 99, 108);
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.nav-side-item:hover {
+  color: yellow;
+}
+
+.spots-contents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 95px;
+  row-gap: 70px;
+  width: 85%;
+  padding: 0 20px;
+}
+
+.spot-content {
+  transition-duration: 0.2s;
+}
+
+.scale:hover {
+  transform: scale(1.05);
+}
+
+.spots-top .fa-solid {
+  display: block;
+}
+
+.spot-down p {
+  margin: 0;
+}
+
+.spot-address {
+  display: flex;
+  align-items: center;
+}
+
+.spot-category {
+  display: flex;
+  align-items: center;
+}
+
+.fa-location-dot {
+  margin-right: 5px;
+  color: red;
+}
+
+.fa-house {
+  margin-right: 5px;
+  font-size: 12px;
+  color: rgb(84, 223, 84);
+}
+
+.spot-content-image .spot-image {
+  width: 100%;
+  height: 150px;
+}
+
+.spots-text-zero {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 300px;
+}
+
+.spot-title p {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.spots-down li {
+  margin-right: 20px;
+}
+
+.search-form-area {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  margin: 0 40px 10px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form-btn {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.fa-magnifying-glass {
+  width: 5%;
+  color: #757575;
+}
+
+.search-content {
+  border: none;
+  padding: 0 5px;
+  width: 95%;
+}
+
+.result-count {
+  opacity: 0.8;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.dropdown button {
+  color: white;
+  padding: 0;
+  width: 100%;
+}
+
+.dropdown button:hover {
+  color: yellow;
+}
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .spots-contents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spots-left .user-icon img{
+    width: 70px;
+    height: 70px;
+  }
+
+  .spots-right {
+    margin-left: 0;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .spots-contents {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    width: 100%;
+  }
+
+  .nav-side {
+    position: fixed;
+    right: 65px;
+    bottom: 5px;
+    text-align: center;
+    margin-right: 10px;
+  }
+
+  .nav-side-content {
+    display: inline-block;
+  }
+
+  .spot-category svg {
+    font-size: 13px;
+  }
+}

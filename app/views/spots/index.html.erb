@@ -1,0 +1,73 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "ホーム", root_path %></li>
+      <li class="breadcrumb-item active"  aria-current="page"><%= link_to "スポット一覧", spots_path %></li>
+    </ol>
+  </nav>
+  <div class="spots-title">
+    <h1>Spots</h1>
+    <p>スポット一覧</p>
+  </div>
+  <div class="spots">
+    <div class="nav-side">
+      <ul class="nav-side-content">
+        <li><%= link_to "新規投稿", new_spot_path, class: "nav-side-item" %></li>
+        <li class="nav-side-item">
+          <div class="dropdown">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              カテゴリー
+            </button>
+            <ul class="dropdown-menu">
+              <% @categories.each do |category| %>
+                <li>
+                  <%= link_to spots_path(category_id: category.id), class: "dropdown-item" do %>
+                    <%= category.name %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="spots-contents">
+      <% if @spots.nil? %>
+        <div class="spots-text-zero">
+          <p>投稿がありません</p>
+        </div>
+      <% else %>
+        <% @spots.each do | spot | %>
+          <%= link_to spot_path(spot) do %>
+            <div class="spot-content scale">
+              <div class="spot-top">
+                <div class="spot-content-image">
+                  <%= image_tag spot.spot_image.url, class: "spot-image" %>
+                </div>
+              </div>
+              <div class="spot-down">
+                <ul>
+                  <li class="spot-title">
+                    <p><%= spot.title %></p>
+                  </li>
+                  <li class="spot-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p><%= spot.address %></p>
+                  </li>
+                  <li class="spot-category">
+                    <i class="fa-solid fa-house"></i>
+                    <% spot.categories.each do |category| %>
+                      <p><%= category.name %></p>
+                      <p><%= "," %></p>
+                    <% end %>
+                  </li>
+              </ul>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= paginate @spots, class: "page" %>
+</div>
