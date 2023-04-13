@@ -16,11 +16,11 @@
       <div class="user-icon-item">
         <% if current_user.image? %>
           <div class="user-icon">
-            <%= image_tag current_user.image.url %>
+            <%= image_tag current_user.image.url, alt: "ユーザー画像" %>
           </div>
         <% else %>
           <div class="user-icon">
-            <%= image_tag "default.png" %>
+            <%= image_tag "default.png", alt: "ゲスト画像" %>
           </div>
         <% end %>
       </div>
@@ -43,7 +43,7 @@
           <div class="field row">
             <%= f.label :image %></br>
             <div  class="profile-edit-image">
-              <%= image_tag @user.image.url if @user.image? %>
+              <%= image_tag @user.image.url, alt: "ユーザー画像" if @user.image? %>
             </div>
             <div class="profile-edit-image-content"><%= f.file_field :image, autocomplete: "image" %></div>
           </div>

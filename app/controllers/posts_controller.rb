@@ -3,11 +3,11 @@ class PostsController < ApplicationController
   before_action :set_q, only: [:index]
 
   def index
-    @results = @q.result.all.page(params[:page]).per(15).order(created_at: :desc)
+    @results = @q.result.includes(user: [:comments, :likes]).page(params[:page]).per(15).order(created_at: :desc)
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user, :likes, :comments).find(params[:id])
     @likes = @post.likes
     @comments = @post.comments.order(created_at: :desc)
     @comment = Comment.new

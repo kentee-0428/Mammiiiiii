@@ -53,6 +53,7 @@
   row-gap: 70px;
   width: 85%;
   padding: 0 20px;
+  margin-bottom: 50px;
 }
 
 .spot-content {
@@ -102,6 +103,7 @@
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 300px;
+  width: 70%;
 }
 
 .spot-title p {
@@ -113,40 +115,16 @@
   margin-right: 20px;
 }
 
-.search-form-area {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 50px;
-  margin: 0 40px 10px;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-form-btn {
-  margin-bottom: 10px;
-  text-align: center;
-}
-
 .fa-magnifying-glass {
   width: 5%;
   color: #757575;
-}
-
-.search-content {
-  border: none;
-  padding: 0 5px;
-  width: 95%;
-}
-
-.result-count {
-  opacity: 0.8;
 }
 
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 40px;
+  margin-bottom: 150px;
 }
 
 .dropdown button {
@@ -199,5 +177,13 @@
 
   .spot-category svg {
     font-size: 13px;
+  }
+
+  .pagination {
+    margin-bottom: 50px;
+  }
+
+  .spots-text-zero {
+    width: 100%;
   }
 }

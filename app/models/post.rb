@@ -8,9 +8,9 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   # 「ログイン中のユーザーがその投稿に対していいねをしているか」
-  def liked?(user)
-    likes.where(user_id: user.id).exists?
-  end
+  # def liked?(user)
+  #   likes.where(user_id: user.id).exists?
+  # end
 
   # ransackモデルにホワイトリストを登録
   def self.ransackable_attributes(auth_object = nil)

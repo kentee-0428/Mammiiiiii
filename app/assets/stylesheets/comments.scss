@@ -2,7 +2,7 @@
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
   border: 0.1px solid rgba(0, 0, 0, 0.12);
   padding: 20px;
-  margin: 0 auto;
+  margin: 0 auto 150px;
   border-radius: 10px;
   width: 70%;
 }
@@ -59,4 +59,11 @@
 .comment-top .user-name {
   font-weight: bold;
   padding: 0;
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .comment-contents {
+    margin-bottom: 50px;
+  }
 }

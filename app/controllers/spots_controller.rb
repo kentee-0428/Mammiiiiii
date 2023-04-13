@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.all.page(params[:page]).per(12).order(created_at: :desc)
+    @spots = Spot.includes(:categories).page(params[:page]).per(12).order(created_at: :desc)
     @categories = Category.all
     if params[:category_id].present?
       @category = Category.find(params[:category_id])
@@ -43,6 +43,8 @@ class SpotsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:id])
     @spot.destroy
+    redirect_to spots_path
+    flash[:notice] = "#{@spot.user.name}さんの投稿を削除しました"
   end
 
   private

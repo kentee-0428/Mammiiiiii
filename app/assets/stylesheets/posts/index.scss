@@ -11,6 +11,7 @@
 .posts-title p {
   font-size: 10px;
 }
+
 .posts-title p::after {
   background-color: #0d63e4;
   content: '';
@@ -125,7 +126,7 @@
 
 .posts-btn:hover {
   opacity: 1;
-  background-color: rgb(251, 195, 185);
+  background-color: rgb(244, 99, 108);
 }
 
 .posts-btn-title {
