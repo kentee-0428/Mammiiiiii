@@ -27,7 +27,7 @@
   padding: 40px;
   border-radius: 5px;
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 150px;
 }
 
 .spot-edit {
@@ -151,8 +151,11 @@ label {
 @media screen and (max-width: 520px) {
   .spot-edit .spot-edit-form {
     padding: 10px;
-    margin: 0;
     width: 100%;
+  }
+
+  .spot-edit-form {
+    margin-bottom: 50px;
   }
 
   .spot-edit .spot-edit-image-content {
@@ -174,10 +177,6 @@ label {
 
   .spot-edit .spot-edit-btn {
     width: 100%;
-  }
-
-  .spot-edit label {
-    padding: 0;
   }
 
   .spot-edit svg {

@@ -15,9 +15,9 @@
       <div class="post-left">
         <div class="user-icon">
           <% if @post.user.image? %>
-            <%= image_tag @post.user.image.url %>
+            <%= image_tag @post.user.image.url, alt: "ユーザー画像" %>
           <% else %>
-            <%= image_tag "default.png" %>
+            <%= image_tag "default.png", alt: "ゲスト画像" %>
           <% end %>
         </div>
       </div>
@@ -47,7 +47,7 @@
         <div class="posts-main">
           <div class="posts-content-image">
             <% if @post.post_image? %>
-              <%= image_tag @post.post_image.url, class: "post-image" %>
+              <%= image_tag @post.post_image.url, class: "post-image", alt: "ポストイメージ画像" %>
             <% end %>
           </div>
           <div class="posts-content-item">
@@ -56,6 +56,10 @@
         </div>
         <ul class="post-down">
           <% if current_user.id == @post.user_id %>
+            <li class="post-comment">
+              <span class="fa-regular fa-comments"></span>
+              <%= @post.comments.count %>
+            </li>
             <li class="post-like">
               <% if @post.likes.count == 0 %>
                   <span class="fa-regular fa-heart"></span>
@@ -81,7 +85,7 @@
                 <%= @post.comments.count %>
               </li>
               <li class="post-like">
-                <% if @post.liked?(current_user) %>
+                <% if @post.likes.where(user_id: current_user.id).exists? %>
                   <%= link_to post_like_path(@post), method: :delete do %>
                     <span class="fa fa-heart liked-btn"></span>
                   <% end %>
@@ -118,11 +122,11 @@
             <div class="comment-left">
               <% if comment.user.image? %>
                 <div class="user-icon">
-                  <%= image_tag comment.user.image.url %>
+                  <%= image_tag comment.user.image.url, alt: "ユーザー画像" %>
                 </div>
               <% else %>
                 <div class="user-icon">
-                  <%= image_tag "default.png" %>
+                  <%= image_tag "default.png", alt: "ゲスト画像" %>
                 </div>
               <% end %>
             </div>

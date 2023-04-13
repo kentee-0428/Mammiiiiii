@@ -27,7 +27,7 @@
   padding: 40px;
   border-radius: 5px;
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 150px;
 }
 
 .post-edit-image img {
@@ -87,9 +87,9 @@ label {
 
 // ================== スマートフォン ==========================
 @media screen and (max-width: 520px) {
-  .post-edit .post-edit-form {
+  .post-edit-form {
     padding: 10px;
-    margin: 0;
+    margin: 0 0 50px;
     width: 100%;
   }
 

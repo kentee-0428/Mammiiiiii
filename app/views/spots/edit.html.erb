@@ -51,7 +51,7 @@
           <div class="field row">
             <%= f.label :spot_image, class: "required" %></br>
             <div  class="spot-edit-image">
-              <%= image_tag @spot.spot_image.url if @spot.spot_image? %>
+              <%= image_tag @spot.spot_image.url, alt: "ポストイメージ画像" if @spot.spot_image? %>
             </div>
             <div class="spot-edit-image-content"><%= f.file_field :spot_image, autocomplete: "spot_image" %></div>
           </div>

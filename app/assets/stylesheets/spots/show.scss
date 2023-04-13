@@ -25,9 +25,13 @@
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
   border: 0.1px solid rgba(0, 0, 0, 0.12);
   padding: 20px;
-  margin: 0 auto 10px;
+  margin: 0 auto 150px;
   border-radius: 10px;
   width: 80%;
+}
+
+.about-conten-feature-area {
+  text-align: left;
 }
 
 .show-spot-content-image .show-spot-image {
@@ -52,15 +56,14 @@
 
 .show-spot-down .fa-pen-to-square, .fa-trash-can {
   display: inline-block;
-  opacity: 0.6;
 }
 
 .show-spot-down .fa-pen-to-square:hover {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .show-spot-down .fa-trash-can:hover {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .show-spot-content-edit li {
@@ -92,7 +95,7 @@
   .show-spot-content {
     box-shadow: none;
     border: none;
-    margin: 0 auto 10px;
+    margin: 0 auto 50px;
     width: 100%;
   }
 

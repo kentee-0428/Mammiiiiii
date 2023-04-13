@@ -52,13 +52,15 @@
             <div class="spot-new-image-content"><%= f.file_field :spot_image, autocomplete: "spot_image" %></div>
           </div>
 
-          <%= f.label :category, 'カテゴリ' %>
-            <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-              <%= category.label do %>
-              <%= category.check_box %>
-              <%= category.text %>
+          <div class="field row">
+            <%= f.label :category, 'カテゴリ' %>
+              <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+                <%= category.label do %>
+                <%= category.check_box %>
+                <%= category.text %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
 
           <%= f.hidden_field :user_id, value: current_user.id %>
 

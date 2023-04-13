@@ -34,14 +34,139 @@
 
 /* =====about start===== */
 .about {
-  height: 500px;
-  background-color: green;
+  padding: 80px;
+  text-align: center;
+}
+
+.about-intro {
+  margin-bottom: 150px;
+}
+
+.intro-title, .about-content-title, .question-title {
+  display: inline-block;
+  width: 20%;
+  background-color: rgb(244, 99, 108);
+  color: white;
+  font-weight: bold;
+  border-radius: 45px;
+  margin-bottom: 50px;
+}
+
+.intro-title h2, .about-content-title h2, .question-title h2 {
+  margin: 8px 0;
+}
+
+.about-content-image video {
+  width: 100%;
+}
+
+.about-conten-feature {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+  padding-bottom: 80px;
+  margin: 0 auto;
+}
+
+.about-conten-feature-area {
+  margin-right: 50px;
+}
+
+.about-conten-feature h3::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  background-color: #0d63e4;
+  margin-top: 10px;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.reverse .about-conten-feature-area {
+  margin-left: 50px;
+  margin-right: 0;
 }
 /* =====about end===== */
 
 /* =====contacts start===== */
-.contacts {
-  height: 500px;
-  background-color: yellow;
+.question {
+  background-color: #f8f8f8;
+  padding: 150px 80px;
+  text-align: center;
+}
+
+.accordion-button {
+  background-color: #f8f8f8;
+}
+
+.accordion {
+  text-align: center;
 }
 /* =====contacts end===== */
+
+// ================== タブレット ==========================
+@media screen and (max-width: 960px) {
+  .about {
+    padding: 80px 0;
+  }
+
+  .intro-title, .about-content-title, .question-title {
+    width: 30%;
+  }
+}
+
+// ================== スマートフォン ==========================
+@media screen and (max-width: 520px) {
+  .top-view-text {
+    padding: 0;
+    text-align: center;
+  }
+
+  .top-view-text h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .top-view-text p {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .about {
+    padding: 40px 0 0;
+  }
+
+  .about p {
+    font-size: 12px;
+  }
+
+  .about-intro {
+    margin-bottom: 80px;
+  }
+
+  .intro-title, .about-content-title, .question-title {
+    width: 40%;
+  }
+
+  .question {
+    padding: 50px 0;
+  }
+
+  .about-conten-feature {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 50px;
+  }
+
+  .about-conten-feature-area {
+    margin-right: 0;
+  }
+
+  .reverse .about-conten-feature-area {
+    margin-left: 0;
+  }
+}

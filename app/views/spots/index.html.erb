@@ -31,18 +31,18 @@
         </li>
       </ul>
     </div>
-    <div class="spots-contents">
-      <% if @spots.nil? %>
-        <div class="spots-text-zero">
-          <p>投稿がありません</p>
-        </div>
-      <% else %>
+    <% if @spots.blank? %>
+      <div class="spots-text-zero">
+        <p>投稿がありません</p>
+      </div>
+    <% else %>
+      <div class="spots-contents">
         <% @spots.each do | spot | %>
           <%= link_to spot_path(spot) do %>
             <div class="spot-content scale">
               <div class="spot-top">
                 <div class="spot-content-image">
-                  <%= image_tag spot.spot_image.url, class: "spot-image" %>
+                  <%= image_tag spot.spot_image.url, class: "spot-image", alt: "スポットイメージ画像" %>
                 </div>
               </div>
               <div class="spot-down">
@@ -66,8 +66,8 @@
             </div>
           <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
   <%= paginate @spots, class: "page" %>
 </div>

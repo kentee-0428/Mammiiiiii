@@ -3,8 +3,8 @@
   <div class="container">
     <div class="top-view">
       <div class="top-view-text">
-        <h1>見出しテキスト</h1>
-        <p>キャッチコピー</p>
+        <h1>Let's start</br>Mammiiiiii</h1>
+        <p>〜大切な子供のために、そして私のために。共に育てよう。〜</p>
       </div>
     </div>
   </div>
@@ -14,13 +14,104 @@
 <!-- ABOUT-CONTENTS SECTION -->
 <div class="about">
   <div class="container">
+    <div class="about-intro">
+      <div class="intro-title">
+        <h2>ABOUT</h2>
+      </div>
+      <div class="intro-text">
+        <p>未来の社会を担う子供たち,子育て中のパパ、ママを支援するためのウェブサイト。</br>
+        ユーザー同士でつながる機能を搭載し、地域の子育てに役立つ情報交換の場を提供しています。</br>
+        私たちは、子供たちの成長に貢献し、明るい未来を創造しますすることを目指しています。
+        </p>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="about-content-title">
+        <h2>CONTENT</h2>
+      </div>
+      <div class="about-conten-feature">
+        <div class="about-conten-feature-area">
+          <div class="about-content-feature-title">
+            <h3>ツイート機能で</br>投稿しよう！</h3>
+          </div>
+          <div class="about-content-feature-text">
+            <p>日頃の出来事や感想などを一瞬でシェア！ツイート機能を搭載しました。
+            子育てに関する情報や、子育てについての悩みや疑問などを簡単に共有できます。
+            親子で感じた感動や笑いを共有して、より良いコミュニケーションを実現。
+            コメントを残して皆さんとつながりながら、子供たちの成長をサポートしましょう！
+            </p>
+          </div>
+        </div>
+        <div class="about-content-image">
+        <%= video_tag  "about_image2.mp4", playsinline: true, autoplay: true, loop: true, muted: true, alt: "ホームコンテンツ画像" %>
+        </div>
+      </div>
+      <div class="about-conten-feature reverse">
+        <div class="about-conten-feature-area">
+          <div class="about-content-feature-title">
+            <h3>お気に入りの場所を</br>投稿しよう！！</h3>
+          </div>
+          <div class="about-content-feature-text">
+            <p>素敵な場所や子供たちが喜ぶスポットを発見したら、すぐに投稿しよう！スポット投稿機能。
+            地域に密着した情報をシェアして、子育て中のパパ,ママたちのお役に立ちます。
+            また、ユーザー同士でスポットを共有することで、より良い選択ができるようになります。
+            子供たちの笑顔があふれる素敵なスポットを、一緒に見つけましょう！
+            </p>
+          </div>
+        </div>
+        <div class="about-content-image">
+          <%= video_tag  "about_image.mp4", playsinline: true, autoplay: true, loop: true, muted: true, alt: "ホームコンテンツ画像" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <!-- ABOUT-CONTENTS SECTION -->
 
 <!-- CONTACTS SECTION -->
-<div class="contacts">
+<div class="question">
   <div class="container">
+    <div class="question-title">
+      <h2>Q&A</h2>
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            このサイトの利用料金はかかりますか？
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>いいえ、すべて無料でご利用いただけますのでご自由にお楽しみください。</strong>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            このサイト「Mammiiiiii(マミー)」は何ですか？
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>主に子育て中のパパ、ママさんのご利用を目的にユーザー同士の情報交換を通してより良い子育ての支援を目指して立ち上げたサイトになります。</strong>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            子育てに関するもの以外は投稿したらダメですか？
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>特に決まりはありませんが、なるべく子育てや子育てに役立つ情報を投稿して頂けると幸いです。</strong>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <!-- CONTACTS SECTION -->

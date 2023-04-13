@@ -16,9 +16,9 @@
           <div class="users-left">
             <div class="user-icon">
               <% if user.image? %>
-                <%= image_tag user.image.url %>
+                <%= image_tag user.image.url, alt: "ユーザー画像" %>
               <% else %>
-                <%= image_tag "default.png" %>
+                <%= image_tag "default.png", alt: "ゲスト画像" %>
               <% end %>
             </div>
           </div>

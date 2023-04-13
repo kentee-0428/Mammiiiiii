@@ -27,7 +27,7 @@
   padding: 40px;
   border-radius: 5px;
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 150px;
 }
 
 .spot-new {
@@ -151,8 +151,11 @@ label {
 @media screen and (max-width: 520px) {
   .spot-new .spot-new-form {
     padding: 10px;
-    margin: 0;
     width: 100%;
+  }
+
+  .spot-new-form {
+    margin-bottom: 50px;
   }
 
   .spot-new .spot-new-image-content {
@@ -174,10 +177,6 @@ label {
 
   .spot-new .spot-new-btn {
     width: 100%;
-  }
-
-  .spot-new label {
-    padding: 0;
   }
 
   .spot-new svg {

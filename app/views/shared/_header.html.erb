@@ -23,11 +23,11 @@
               <div class="user-icon">
                 <% if current_user.image? %>
                   <%= link_to profile_user_path(id: current_user), class: "nav-link" do %>
-                    <%= image_tag current_user.image.url %>
+                    <%= image_tag current_user.image.url, alt: "ユーザー画像" %>
                   <% end %>
                 <% else %>
                   <%= link_to profile_user_path(id: current_user), class: "nav-link" do %>
-                    <%= image_tag "default.png", class: "guest-img" %>
+                    <%= image_tag "default.png", class: "guest-img", alt: "ゲスト画像" %>
                   <% end %>
                 <% end %>
               </div>

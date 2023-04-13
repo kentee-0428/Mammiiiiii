@@ -11,6 +11,7 @@
 .users-title p {
   font-size: 10px;
 }
+
 .users-title p::after {
   background-color: #0d63e4;
   content: '';
@@ -21,7 +22,7 @@
 }
 
 .users-contents {
-  padding: 0 200px;
+  padding: 0 200px 100px;
   width: 100%;
 }
 
@@ -84,7 +85,7 @@
   }
 
   .users-contents {
-    padding: 0 10px;
+    padding: 0 10px 100px;
   }
 }
 
@@ -96,7 +97,7 @@
   }
 
   .users-contents {
-    padding: 0;
+    padding: 0 0 50px;
   }
 
   .users-content {
