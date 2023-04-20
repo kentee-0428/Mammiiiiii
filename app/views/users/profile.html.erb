@@ -63,7 +63,7 @@
   </div>
   <div class="posts-contents">
     <div class="posts-text-zero">
-      <% if @user.posts.count == 0 %>
+      <% if @user.posts.blank? %>
         <p>投稿がありません</p>
       <% end %>
     </div>
@@ -141,12 +141,12 @@
     <p>スポット一覧</p>
   </div>
   <div class="user-spots">
-    <div class="user-spots-contents">
-      <% if @user.spots.nil? %>
-        <div class="spots-text-zero">
-          <p>投稿がありません</p>
-        </div>
-      <% else %>
+    <% if @user.posts.blank? %>
+      <div class="posts-text-zero">
+        <p>投稿がありません</p>
+      </div>
+    <% else %>
+      <div class="user-spots-contents">
         <% @user.spots.each do | spot | %>
           <%= link_to spot_path(spot) do %>
             <div class="spot-content scale">
@@ -176,8 +176,7 @@
             </div>
           <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-</div>
 </div>

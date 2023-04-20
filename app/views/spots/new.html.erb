@@ -9,7 +9,7 @@
   <div class="spot-new">
     <div class="spot-new-title">
       <h1>New Spot</h1>
-      <p>スポット編集</p>
+      <p>スポット新規投稿</p>
     </div>
     <div class="spot-new-form">
       <div class="spot-new-body container-fluid">
@@ -30,7 +30,7 @@
           </div>
 
           <div class="field row">
-            <%= f.label :address, class: "required spot-new-image" %></br>
+            <%= f.label :address, class: "required" %></br>
             <div class="field-content row">
               <div class="field-content-left">
                 <i class="fa-solid fa-location-dot"></i>
@@ -53,7 +53,7 @@
           </div>
 
           <div class="field row">
-            <%= f.label :category, 'カテゴリ' %>
+            <%= f.label :category %>
               <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
                 <%= category.label do %>
                 <%= category.check_box %>
