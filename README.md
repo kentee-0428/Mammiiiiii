@@ -20,7 +20,7 @@ GithubURL: https://github.com/kentee-0428/mammiiiiii
 
 ホーム画面からゲストログインできます。（その他、新規登録画面からも可能です。）
 
-![Alt text](/app/assets/images/portfolio/portfolio_1.png)
+![Alt text](/app/assets/images/readme/portfolio_1.png)
 
 メインのターゲットユーザー：　「子育て中の親、またはこれから子育てに関する知識や情報を取得したい人へ」
 
@@ -67,7 +67,7 @@ GithubURL: https://github.com/kentee-0428/mammiiiiii
 
 簡単なQ&Aを掲載しました。
 
-![Alt text](/app/assets/images/portfolio/portfolio_7.mp4)
+![Alt text](/app/assets/images/readme/portfolio_7.mp4)
 
 ## ②ユーザー関連ページ
 
@@ -83,7 +83,7 @@ GithubURL: https://github.com/kentee-0428/mammiiiiii
 
 ・ユーザー編集
 
-![Alt text](/app/assets/images/portfolio/portfolio_2.png)
+![Alt text](/app/assets/images/readme/portfolio_2.png)
 
 
 ## ③ポスト関連ページ
@@ -98,7 +98,7 @@ GithubURL: https://github.com/kentee-0428/mammiiiiii
 
 ・ポスト編集
 
-![Alt text](/app/assets/images/portfolio/portfolio_3.png)
+![Alt text](/app/assets/images/readme/portfolio_3.png)
 
 ## ④スポット関連ページ
 
@@ -114,7 +114,7 @@ PCは3カラムでタブレットは2カラムスマホは1カラムで実装。
 
 ・スポット編集
 
-![Alt text](/app/assets/images/portfolio/portfolio_4.png)
+![Alt text](/app/assets/images/readme/portfolio_4.png)
 
 # 6.機能一覧
 
@@ -246,8 +246,8 @@ pixabay(画像素材)
 
 パッと見た時に何のボタンか？何を意味するリンクなのかが分かりやすく、また文字ばかりのアプリでは可読性に欠けるのでアイコンを採用。
 
-![Alt text](/app/assets/images/portfolio/portfolio_5.png)
-![Alt text](/app/assets/images/portfolio/portfolio_6.png)
+![Alt text](/app/assets/images/readme/portfolio_5.png)
+![Alt text](/app/assets/images/readme/portfolio_6.png)
 
 # 10.作成中に意識したこと
 
@@ -276,6 +276,3 @@ pixabay(画像素材)
 # 12.アプリ作成後の感想
 
 ポートフォリオを作成することで、自分自身のスキルや経験を整理し、自己分析を深めることができました。ポートフォリオ作成にあたっては、デザインやコンテンツの構成など、自分が想像する以上に多くの時間や労力が必要であることを実感しました。しかし、作成が終わった時には、自分が過去に取り組んだプロジェクトや実績を振り返り、自分自身の成長を実感できました。今後は、ポートフォリオを随時更新し、自分のスキルアップとともに自己アピールを行っていきたいと思っています。
-
-
-
