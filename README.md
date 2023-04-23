@@ -67,7 +67,9 @@ GithubURL: https://github.com/kentee-0428/mammiiiiii
 
 簡単なQ&Aを掲載しました。
 
-![Alt text](/app/assets/images/readme/portfolio_7.mp4)
+![Alt text](/app/assets/images/readme/portfolio_9.png)
+![Alt text](/app/assets/images/readme/portfolio_10.png)
+![Alt text](/app/assets/images/readme/portfolio_11.png)
 
 ## ②ユーザー関連ページ
 
@@ -196,7 +198,7 @@ Ruby on Rails 6.1.7.3
 
 初学者向けのわかりやすい教材・記事が多数ある
 
-##インフラ
+## インフラ
 
 Docker
 
