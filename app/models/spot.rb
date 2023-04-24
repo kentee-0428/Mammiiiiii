@@ -7,6 +7,11 @@ class Spot < ApplicationRecord
   has_many :spot_category_relations
   has_many :categories, through: :spot_category_relations
 
+  # ransackモデルにホワイトリストを登録
+  def self.ransackable_attributes(auth_object = nil)
+    ["address"]
+  end
+
   validates :title, presence: true, length: { maximum: 15 }
   validates :address, presence: true
   validates :spot_image, presence: true

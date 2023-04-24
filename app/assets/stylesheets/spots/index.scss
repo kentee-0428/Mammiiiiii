@@ -137,6 +137,13 @@
   color: yellow;
 }
 
+.spot-search {
+  margin-bottom: 100px;
+}
+
+.spot-search .search-btn {
+  margin-top: 10px;
+}
 // ================== タブレット ==========================
 @media screen and (max-width: 960px) {
   .spots-contents {
@@ -185,5 +192,9 @@
 
   .spots-text-zero {
     width: 100%;
+  }
+
+  .spot-search {
+    margin-bottom: 50px;
   }
 }
