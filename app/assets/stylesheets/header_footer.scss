@@ -28,6 +28,18 @@
   height: 80px;
 }
 
+.nav-item .user-icon .nav-link {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-item .user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .offcanvas-title {
   color: red;
 }

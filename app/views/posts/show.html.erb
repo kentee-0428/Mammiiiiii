@@ -14,8 +14,8 @@
     <div class="post-content">
       <div class="post-left">
         <div class="user-icon">
-          <% if @post.user.image? %>
-            <%= image_tag @post.user.image.url, alt: "ユーザー画像" %>
+          <% if @post.user.image.present?  %>
+            <%= image_tag @post.user.image, alt: "ユーザー画像" %>
           <% else %>
             <%= image_tag "default.png", alt: "ゲスト画像" %>
           <% end %>
@@ -46,8 +46,8 @@
         </div>
         <div class="posts-main">
           <div class="posts-content-image">
-            <% if @post.post_image? %>
-              <%= image_tag @post.post_image.url, class: "post-image", alt: "ポストイメージ画像" %>
+            <% if @post.post_image.present? %>
+              <%= image_tag @post.post_image, class: "post-image", alt: "ポストイメージ画像" %>
             <% end %>
           </div>
           <div class="posts-content-item">
@@ -58,15 +58,15 @@
           <% if current_user.id == @post.user_id %>
             <li class="post-comment">
               <span class="fa-regular fa-comments"></span>
-              <%= @post.comments.count %>
+              <%= @post.comments.size %>
             </li>
             <li class="post-like">
-              <% if @post.likes.count == 0 %>
+              <% if @post.likes.size == 0 %>
                   <span class="fa-regular fa-heart"></span>
               <% else %>
                   <span class="fa fa-heart liked-btn"></span>
               <% end %>
-              <%= @post.likes.count %>
+              <%= @post.likes.size %>
             </li>
             <li class="post-edit">
               <%= link_to edit_post_path do %>
@@ -82,10 +82,10 @@
             <% if user_signed_in? %>
               <li class="post-comment">
                 <span class="fa-regular fa-comments"></span>
-                <%= @post.comments.count %>
+                <%= @post.comments.size %>
               </li>
               <li class="post-like">
-                <% if @post.likes.where(user_id: current_user.id).exists? %>
+                <% if @post.liked?(@post.likes, current_user.id) %>
                   <%= link_to post_like_path(@post), method: :delete do %>
                     <span class="fa fa-heart liked-btn"></span>
                   <% end %>
@@ -94,7 +94,7 @@
                     <span class="fa-regular fa-heart"></span>
                   <% end %>
                 <% end %>
-                <%= @post.likes.count %>
+                <%= @post.likes.size %>
               </li>
             <% end %>
           <% end %>
@@ -120,9 +120,9 @@
         <% @comments.each do |comment| %>
           <div class="comment-content">
             <div class="comment-left">
-              <% if comment.user.image? %>
+              <% if comment.user.image.present? %>
                 <div class="user-icon">
-                  <%= image_tag comment.user.image.url, alt: "ユーザー画像" %>
+                  <%= image_tag comment.user.image, alt: "ユーザー画像" %>
                 </div>
               <% else %>
                 <div class="user-icon">

@@ -3,11 +3,11 @@ class PostsController < ApplicationController
   before_action :set_q, only: [:index]
 
   def index
-    @results = @q.result.includes(user: [:comments, :likes]).page(params[:page]).per(15).order(created_at: :desc)
+    @results = @q.result.with_attached_post_image.includes(:likes, :user, :comments).page(params[:page]).per(15).order(created_at: :desc)
   end
 
   def show
-    @post = Post.includes(:user, :likes, :comments).find(params[:id])
+    @post = Post.preload(:likes, :user, :comments).find(params[:id])
     @likes = @post.likes
     @comments = @post.comments.order(created_at: :desc)
     @comment = Comment.new

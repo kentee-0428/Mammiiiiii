@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.includes(:posts, :spots).page(params[:page]).per(15).order(created_at: :desc)
+    @users = User.with_attached_image.includes(:posts, :spots).page(params[:page]).per(15).order(created_at: :desc)
   end
 
   def profile
-    @user = User.find(params[:id])
+    @user = User.includes(posts: [:likes], spots: [:categories]).find(params[:id])
   end
 
   def new

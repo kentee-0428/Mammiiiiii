@@ -15,8 +15,8 @@
         <div class="users-content scale">
           <div class="users-left">
             <div class="user-icon">
-              <% if user.image? %>
-                <%= image_tag user.image.url, alt: "ユーザー画像" %>
+              <% if user.image.present? %>
+                <%= image_tag user.image, alt: "ユーザー画像" %>
               <% else %>
                 <%= image_tag "default.png", alt: "ゲスト画像" %>
               <% end %>
@@ -27,8 +27,8 @@
               <li class="user-name">
                 <%= user.name %>
               </li>
-              <li class="user-posts"><p><%= "Post: #{user.posts.count}" %></p></li>
-              <li class="user-places"><%= "Spot: #{user.spots.count}" %></p></li>
+              <li class="user-posts"><p><%= "Post: #{user.posts.size}" %></p></li>
+              <li class="user-places"><%= "Spot: #{user.spots.size}" %></p></li>
               <% if user.gender %>
                 <li class="user-gender">
                   <% case user.gender %>

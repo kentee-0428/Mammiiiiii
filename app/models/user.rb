@@ -5,7 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
 
   # イメージカラムを指定
-  mount_uploader :image, ImageUploader
+  has_one_attached :image
 
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |user|

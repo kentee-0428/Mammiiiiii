@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   # イメージカラムを指定
-  mount_uploader :post_image, ImageUploader
+  has_one_attached :post_image
 
   #アソシエーション設定
   belongs_to :user
@@ -9,8 +9,11 @@ class Post < ApplicationRecord
 
   # 「ログイン中のユーザーがその投稿に対していいねをしているか」
   # def liked?(user)
-  #   likes.where(user_id: user.id).exists?
+  #   likes.where(user_id: user.id).present?
   # end
+  def liked?(like, current_user_id)
+    like.pluck(:user_id).include?(current_user_id)
+  end
 
   # ransackモデルにホワイトリストを登録
   def self.ransackable_attributes(auth_object = nil)

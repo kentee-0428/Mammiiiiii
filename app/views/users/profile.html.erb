@@ -14,8 +14,8 @@
   <div class="user-form">
     <div class="user-top">
       <div class="user-icon">
-        <% if @user.image? %>
-          <%= image_tag @user.image.url, alt: "ユーザー画像" %>
+        <% if @user.image.present? %>
+          <%= image_tag @user.image, alt: "ユーザー画像" %>
         <% else %>
           <%= image_tag "default.png", class: "guest-user", alt: "ゲスト画像" %>
         <% end %>
@@ -27,8 +27,8 @@
           <h2>ゲスト</h2>
         <% end %>
       </div>
-      <div class="user-posts"><p><%= "Post: #{@user.posts.count}" %></p></div>
-      <div class="user-places"><%= "Spot: #{@user.spots.count}" %></p></div>
+      <div class="user-posts"><p><%= "Post: #{@user.posts.size}" %></p></div>
+      <div class="user-places"><%= "Spot: #{@user.spots.size}" %></p></div>
       <div class="user-gender">
         <% case @user.gender %>
           <% when "男性" %>
@@ -72,8 +72,8 @@
         <div class="posts-content scale">
           <div class="posts-left">
             <div class="user-icon">
-              <% if posts.user.image? %>
-                <%= image_tag posts.user.image.url, alt: "ユーザー画像" %>
+              <% if posts.user.image.present? %>
+                <%= image_tag posts.user.image, alt: "ユーザー画像" %>
               <% else %>
                 <%= image_tag "default.png", alt: "ゲスト画像" %>
               <% end %>
@@ -94,8 +94,8 @@
             </div>
             <div class="posts-main">
               <div class="posts-content-image">
-                <% if posts.post_image? %>
-                  <%= image_tag posts.post_image.url, alt: "ポストイメージ画像" %>
+                <% if posts.post_image.present? %>
+                  <%= image_tag posts.post_image, alt: "ポストイメージ画像" %>
                 <% end %>
               </div>
               <div class="posts-content-item">
@@ -107,17 +107,17 @@
             <ul class="posts-down">
               <% if current_user.id == posts.user_id %>
                 <li class="post-like">
-                  <% if posts.likes.where(user_id: current_user.id).exists?%>
+                  <% if posts.liked?(posts.likes, current_user.id) %>
                     <span class="fa fa-heart liked-btn"></span>
                   <% else %>
                     <span class="fa-regular fa-heart"></span>
                   <% end %>
-                  <%= posts.likes.count %>
+                  <%= posts.likes.size %>
                 </li>
               <% else %>
                 <% if user_signed_in? %>
                   <li class="post-like">
-                    <% if posts.likes.where(user_id: current_user.id).exists? %>
+                    <% if posts.liked?(posts.likes, current_user.id) %>
                       <%= link_to post_likes_path(posts), method: :delete do %>
                         <span class="fa fa-heart liked-btn"></span>
                       <% end %>
@@ -126,7 +126,7 @@
                         <span class="fa-regular fa-heart"></span>
                       <% end %>
                     <% end %>
-                    <%= posts.likes.count %>
+                    <%= posts.likes.size %>
                   </li>
                 <% end %>
               <% end %>
@@ -152,7 +152,7 @@
             <div class="spot-content scale">
               <div class="spot-top">
                 <div class="spot-content-image">
-                  <%= image_tag spot.spot_image.url, class: "spot-image", alt: "スポットイメージ画像" %>
+                  <%= image_tag spot.spot_image, class: "spot-image", alt: "スポットイメージ画像" if spot.spot_image.present? %>
                 </div>
               </div>
               <div class="spot-down">

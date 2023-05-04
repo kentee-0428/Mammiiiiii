@@ -26,7 +26,7 @@
           <div class="field row">
             <%= f.label :post_image %></br>
             <div class="post-edit-image">
-              <%= image_tag @post.post_image.url, alt: "ポストイメージ画像" if @post.post_image? %>
+              <%= image_tag @post.post_image, alt: "ポストイメージ画像" if @post.post_image? %>
             </div>
             <div class="post-edit-image-content"><%= f.file_field :post_image, autocomplete: "image" %></div>
           </div>

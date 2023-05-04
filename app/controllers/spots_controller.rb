@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
   before_action :set_q, only: [:index]
 
   def index
-    @spots = @q.result.includes(:categories).page(params[:page]).per(12).order(created_at: :desc)
+    @spots = @q.result.with_attached_spot_image.includes(:categories, :spot_category_relations).page(params[:page]).per(12).order(created_at: :desc)
     @categories = Category.all
     if params[:category_id].present?
       @category = Category.find(params[:category_id])
@@ -53,7 +53,7 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :content, :address, :spot_image, :user_id, category_ids: [])
+    params.require(:spot).permit(:title, :content, :address, :latitude, :longitude, :spot_image, :user_id, category_ids: [])
   end
 
   def set_q

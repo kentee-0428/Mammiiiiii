@@ -1,18 +1,22 @@
-.show-spot-title {
+.show-spot-title,
+.show-map-title {
   text-align: center;
   padding: 50px 0 30px;
 }
 
-.show-spot-title h1 {
+.show-spot-title h1,
+.show-map-title h1 {
   letter-spacing: 7px;
   margin-bottom: 0;
 }
 
-.show-spot-title p {
+.show-spot-title p,
+.show-map-title p {
   font-size: 10px;
 }
 
-.show-spot-title p::after {
+.show-spot-title p::after,
+.show-map-title p::after {
   background-color: #0d63e4;
   content: '';
   width: 110px;
@@ -25,7 +29,7 @@
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
   border: 0.1px solid rgba(0, 0, 0, 0.12);
   padding: 20px;
-  margin: 0 auto 150px;
+  margin: 0 auto 50px;
   border-radius: 10px;
   width: 80%;
 }
@@ -90,12 +94,19 @@
   margin-right: 10px;
 }
 
+#map {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto 150px;
+}
+
 // ================== スマートフォン ==========================
 @media screen and (max-width: 520px) {
   .show-spot-content {
     box-shadow: none;
     border: none;
-    margin: 0 auto 50px;
+    margin: 0 auto;
+    padding: 0;
     width: 100%;
   }
 
@@ -132,6 +143,16 @@
 
   .show-spot-content-category {
     font-size: 10px;
+  }
+
+  #map {
+    height: 400px;
+    width: 100%;
+    margin: 0 auto 50px;
+  }
+
+  .show-map-title {
+    padding: 30px 0 15px;
   }
 
 }

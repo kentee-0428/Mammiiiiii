@@ -55,7 +55,7 @@
             <div class="spot-content scale">
               <div class="spot-top">
                 <div class="spot-content-image">
-                  <%= image_tag spot.spot_image.url, class: "spot-image", alt: "スポットイメージ画像" %>
+                  <%= image_tag spot.spot_image, class: "spot-image", alt: "スポットイメージ画像" if spot.spot_image.present? %>
                 </div>
               </div>
               <div class="spot-down">
